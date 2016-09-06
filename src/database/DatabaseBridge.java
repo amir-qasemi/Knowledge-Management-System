@@ -25,6 +25,7 @@ import exceptions.user_exceptions.UserIDDoesNotExistsException;
 import exceptions.user_exceptions.UserNameDoesNotExistsException;
 import exceptions.user_exceptions.UsernameIsAlreadyRegisteredException;
 import file.MyFile;
+import project.ProjectSummary;
 import user.Role;
 import user.User;
 
@@ -2177,6 +2178,83 @@ public class DatabaseBridge {
 			throw e;
 		}
 		return members;
+	}
+
+	// this method provided to receive a list of project that this user has with
+	// them
+	public ArrayList<project.ProjectSummary> getProjectsNames(int user_id) throws Throwable {
+		ArrayList<project.ProjectSummary> projects = new ArrayList<>();
+
+		// query
+		String getProjectidQuery = "SELECT * FROM membership WHERE membership_user_id = ?";
+
+		// statement
+		PreparedStatement getProjectidStatement = null;
+
+		// result set
+		ResultSet resultSet = null;
+
+		// connection
+		Connection connection;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			getProjectidStatement = connection.prepareStatement(getProjectidQuery);
+			getProjectidStatement.setInt(1, user_id);
+			resultSet = getProjectidStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				String project_id = resultSet.getInt("membership_project_id") + "";
+				String project_name = getProjectName(Integer.parseInt(project_id));
+				project.ProjectSummary summary = new ProjectSummary(project_name, project_id);
+				projects.add(summary);
+
+			}
+
+		} catch (Throwable e) {
+			throw e;
+		}
+
+		return projects;
+	}
+
+	public String getProjectName(int project_id) throws Throwable {
+		String project_name = null;
+
+		// query
+		String getProjectNameQuery = "SELECT * FROM project WHERE project_id = ?";
+
+		// statements
+		PreparedStatement getProjectNameStatment = null;
+
+		// result set for get project id
+		ResultSet getProjectNameSet = null;
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			getProjectNameStatment = connection.prepareStatement(getProjectNameQuery);
+			getProjectNameStatment.setInt(1, project_id);
+			getProjectNameSet = getProjectNameStatment.executeQuery();
+
+			if (getProjectNameSet.next()) {
+				project_name = getProjectNameSet.getString("project_name");
+			}
+		} catch (Throwable e) {
+			connection.rollback();
+			throw e;
+		}
+
+		return project_name;
+	}
+
+	// this method return a project complete with their files and other after
+	// click on them in the page
+	public void getProject(int project_id) {
+
 	}
 
 }
