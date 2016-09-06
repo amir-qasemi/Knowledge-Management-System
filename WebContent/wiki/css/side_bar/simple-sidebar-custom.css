@@ -1,0 +1,54 @@
+.sidebar-nav li a {
+	color: whitesmoke;
+}
+
+.sidebar-nav>.sidebar-brand a {
+	color: #fffcfc;
+}
+
+#page-content-wrapper {
+	top: 100px;
+}
+
+#sidebar-wrapper {
+	top: 0px;
+}
+
+#page-content-wrapper {
+	top: 90px;
+}
+
+.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 25px;
+	overflow: hidden;
+	background-color: #000;
+	top: 0;
+	width: 100%;
+	border-radius: 0px;
+}
+
+.navbar li {
+	float: left;
+}
+
+.navbar li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.navbar li a:hover {
+	background-color: #807a7a;
+}
+
+.btn-link {
+	color: white;
+}
+
+.btn-link hover:HOVER {
+	background-color: #807a7a;
+}

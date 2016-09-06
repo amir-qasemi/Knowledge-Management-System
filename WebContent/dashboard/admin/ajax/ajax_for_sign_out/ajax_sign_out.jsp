@@ -1,0 +1,1 @@
+<!-- the sign out action is in the authentication file  -->

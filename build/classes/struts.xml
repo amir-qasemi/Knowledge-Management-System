@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!-- <constant name="struts.fileUpload.maxSize" value="419430400" /> 400MB -->
+	<package name="fileUpload" extends="struts-default">
+		<action name="uploadFile" class="actions.file.upload.UploadFileAction"
+			method="execute">
+			<param name="saveDirectory">D:/kmUploadFile/</param>
+
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">*/*</param>
+				<param name="maximumSize">419430400</param> <!-- 400MB -->
+			</interceptor-ref>
+
+			<interceptor-ref name="staticParams" />
+			<interceptor-ref name="params" />
+			<interceptor-ref name="validation" />
+			<interceptor-ref name="workflow" />
+
+			<result name="success" type="redirect">sendFileRedirect</result>
+		</action>
+	</package>
+
+	<package name="user" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="adminVerification"
+				class="interceptors.secure.admin.AdminVerificationInterceptor" />
+
+			<interceptor name="userVerification"
+				class="interceptors.secure.user.UserVerificationInterceptor"></interceptor>
+
+
+			<interceptor-stack name="admin">
+				<interceptor-ref name="adminVerification" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+
+			<interceptor-stack name="user">
+				<interceptor-ref name="userVerification" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
+
+		<global-results>
+			<result name="AccessDeniedResult" type="redirectAction">
+				<param name="actionName">AccessDenied.action</param>
+				<param name="namespace">/</param>
+			</result>
+		</global-results>
+	</package>
+
+
+	<package name="unsigned_users" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="rememberUser"
+				class="interceptors.unsecure.RemeberUserInterceptor" />
+
+
+
+			<interceptor-stack name="authenticateUnsignedUsers">
+				<interceptor-ref name="rememberUser" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+
+		</interceptors>
+
+
+		<global-results>
+			<result name="admin_home_page" type="redirectAction">
+				<param name="actionName">dashboardRedirect.action</param>
+				<param name="namespace">/</param> 
+			</result>
+			
+			<result></result>
+		</global-results>
+	</package>
+
+</struts>

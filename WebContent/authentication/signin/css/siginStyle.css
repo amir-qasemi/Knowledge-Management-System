@@ -1,0 +1,29 @@
+body {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.login-panel {
+	border-radius: 0;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.heading {
+	border-radius: 0;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.footer {
+	border-radius: 0;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+input[type="text"], input[type="password"], input[type="checkbox"] {
+	border-radius: 0;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.4);
+}

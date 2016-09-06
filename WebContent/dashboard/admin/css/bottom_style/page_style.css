@@ -1,0 +1,46 @@
+.panel-download {
+	background-color: #444;
+	color: #fff;
+}
+
+.panel-download a {
+	color: #444;
+	overflow: hidden;
+}
+
+.panel-download .fa-left {
+	color: #444;
+}
+
+.panel-wiki {
+	background-color: rgb(185, 185, 185);
+}
+
+.panel-wiki p, .fa-wiki {
+	color: #fff;
+}
+
+.panel-wiki a {
+	color: rgb(185, 185, 185);
+}
+
+.panel.wiki a {
+	color: rgb(185, 185, 185);
+	overflow: hidden;
+}
+
+.panel-addmessage .fa-left {
+	color: green;
+}
+
+.panel-message .fa-left {
+	color: orange;
+}
+
+.panel-upload .fa-left {
+	color: red;
+}
+
+.panel-wiki .fa-left {
+	color: rgb(185, 185, 185);
+}
