@@ -2178,5 +2178,90 @@ public class DatabaseBridge {
 		}
 		return members;
 	}
+	
+	
+	
+	
+	
+	
+	
+	public void addTodoList(String todo_list_project_id ,String todo_list_description , String todo_list_time_stamp , boolean todo_list_is_completed) throws Throwable {
 
+		// query
+		String addTodoListItemQuery = "INSERT INTO todo_list (todo_list_item_description , todo_list_item_time_stamp , todo_list_item_is_completed , todo_list_item_project_id) VALUES (? , ? , ? , ?)";
+
+		// statements
+		PreparedStatement addProjectTodoListItemsStatment = null;
+
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			connection.setAutoCommit(false);
+			addProjectTodoListItemsStatment = connection.prepareStatement(addTodoListItemQuery);
+			addProjectTodoListItemsStatment.setString(1, todo_list_description);
+			addProjectTodoListItemsStatment.setString(2, todo_list_time_stamp);
+			addProjectTodoListItemsStatment.setBoolean(3, todo_list_is_completed);
+			addProjectTodoListItemsStatment.setString(4, todo_list_project_id);
+			addProjectTodoListItemsStatment.executeUpdate();
+			connection.commit();
+		} catch (Throwable e) {
+			connection.rollback();
+			throw e;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+
+	public ArrayList<actions.todo.todo_item> getTodoList(String project_id) throws Throwable {
+		ArrayList<actions.todo.todo_item> todo_array = new ArrayList<>();
+
+		// query
+		String getProjectidQuery = "SELECT * FROM todo WHERE project_id = ?";
+
+		// statements
+		PreparedStatement getProjectTodoListItemsStatment = null;
+
+		// result set for get project id
+		ResultSet getProjectTodoListItemsSet = null;
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			getProjectTodoListItemsStatment = connection.prepareStatement(getProjectidQuery);
+			getProjectTodoListItemsStatment.setInt(1, Integer.parseInt(project_id));
+			getProjectTodoListItemsSet = getProjectTodoListItemsStatment.executeQuery();
+
+			while (getProjectTodoListItemsSet.next()) {
+				actions.todo.todo_item item = new actions.todo.todo_item();
+				item.setDescription(getProjectTodoListItemsSet.getString("todo_list_item_description"));
+				item.setProjectID(getProjectTodoListItemsSet.getInt("todo_list_item_project_id"));
+				if(getProjectTodoListItemsSet.getInt("todo_list_item_is_completed") == 0){
+					item.setIsCompleted(true);
+				}
+				else if(getProjectTodoListItemsSet.getInt("todo_list_item_is_completed") == 1){
+					item.setIsCompleted(false);
+				}
+				item.setTimeStamp(getProjectTodoListItemsSet.getDate("todo_list_item_time_stamp").toString());
+				item.setProjectID(Integer.parseInt(project_id));
+				todo_array.add(item);
+				
+			}
+		} catch (Throwable e) {
+			connection.rollback();
+			throw e;
+		}
+
+		return todo_array;
+	}
+	
 }

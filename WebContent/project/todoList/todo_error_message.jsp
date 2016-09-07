@@ -1,0 +1,3 @@
+<script>
+	isSet = true;
+</script>

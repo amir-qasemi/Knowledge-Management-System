@@ -47,9 +47,9 @@ public class ConnectionManagager {
 		// String username = DBConfig.getProperty("username");
 		// String password = DBConfig.getProperty("password");
 		// if(url == null || password == null || username == null){
-		cpds.setJdbcUrl("jdbc:mysql://localhost:8080/kms");
+		cpds.setJdbcUrl("jdbc:mysql://localhost:3306/kms");
 		cpds.setUser("root");
-		cpds.setPassword("#4271011304@");
+		cpds.setPassword("35462832");
 		// }
 		// else{
 		// System.out.println("Entered");
