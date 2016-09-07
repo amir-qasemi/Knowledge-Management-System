@@ -112,8 +112,11 @@
 
 																	<div>
 																		<ul class="list-unstyled spaced">
-																			<li><i class="ace-icon fa fa-caret-right blue"></i><a>
-																					your projects show here ! </a></li>
+																			<s:iterator status="stat" value="projectNames">
+																				<li><i class="ace-icon fa fa-caret-right blue"></i>
+																					Project id : <s:property value="project_id" />
+																					Project name : <s:property value="project_name" /></li>
+																			</s:iterator>
 																		</ul>
 																	</div>
 																</div>

@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
 
 <script type="text/javascript">
 	$(function() {
-		$("#actionErrorContainer").hide();
-		$("#actionSuccessContainer").hide();
-		$("#login").on("click", function() {
-			ajaxlogin().done(function(data) {
+		$("#actionRegisterSuccessContainer").hide();
+		$("#actionRegisterErrorContainer").hide();
+		$("#register").on("click", function() {
+			ajaxRegisterRequest().done(function(data) {
 				$("body").append(data);
 			}).fail(function(xhr, status, errorThrow) {
 				allert("Ajax Error :" + errorThrow);
@@ -17,13 +18,13 @@
 		})
 	});
 
-	function ajaxlogin() {
+	function ajaxRegisterRequest() {
 		var dynamicdata = {};
-		dynamicdata["userName"] = $("#userName").val();
-		dynamicdata["password"] = $("#password").val();
-		dynamicdata["rememberMe"] = $("#rememberMe").is(":checked");
+		dynamicdata["request_content"] = $("#request_content").val();
+		dynamicdata["request_user_name"] = $("#requst_user_name").val();
+		dynamicdata["request_user_email"] = $("#request_user_email").val();
 		return $.ajax({
-			url : "signin",
+			url : "registerRequest",
 			type : "post",
 			data : dynamicdata
 		});

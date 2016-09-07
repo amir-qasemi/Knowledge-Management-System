@@ -36,7 +36,8 @@
 							<div class="page-header">
 								<h1>Users list</h1>
 							</div>
-
+							<div class="table-header">Results for "Latest Registered
+								Domains"</div>
 							<div class="dataTable_wrapper">
 								<table class="table table-striped table-bordered table-hover"
 									id="dataTables-example">

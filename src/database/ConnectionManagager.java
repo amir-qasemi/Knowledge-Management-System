@@ -37,7 +37,7 @@ public class ConnectionManagager {
 		cpds.setDriverClass("com.mysql.jdbc.Driver");
 		// cpds.setJdbcUrl("jdbc:mysql://localhost:3306/kms");
 		// cpds.setUser("root");
-		// cpds.setPassword("1375aA1375@");
+		// cpds.setPassword("sanay.rosh");
 		// cpds.setDriverClass("com.mysql.jdbc.Driver"); //loads the jdbc driver
 		// Properties DBConfig = new Properties();
 		// final File dbConfigFile = new File("DBConfig.properties");
@@ -49,8 +49,8 @@ public class ConnectionManagager {
 		// if(url == null || password == null || username == null){
 		cpds.setJdbcUrl("jdbc:mysql://localhost:3306/kms");
 		cpds.setUser("root");
-		cpds.setPassword("35462832");
 		// }
+		cpds.setPassword("35462832");
 		// else{
 		// System.out.println("Entered");
 		// cpds.setJdbcUrl(url);

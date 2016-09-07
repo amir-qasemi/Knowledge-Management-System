@@ -1,28 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html>
 
-<!-- this page for include java script bootstrap files in other pages -->
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="library/jquery/jquery-1.12.4.min.js"></script>
-<script src="framework/bootstrap/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="framework/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+<!-- JQuery UI -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
+<!-- Latest compiled Bootstrap JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- Add Google Maps -->
+<script
+	src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB0SoxhS7i4yawty8Gsh7ybuzhZyEKQD8Q"></script>
 
-<!-- jQuery -->
-<script src="templates/bower_components/jquery/dist/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="templates/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="templates/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="templates/dist/js/sb-admin-2.js"></script>
+<!-- Home page custom js -->
+<script src="home/unsigned_user/js/home.js"></script>

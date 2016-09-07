@@ -17,6 +17,7 @@ import content.EditType;
 import content.Message;
 import content.Page;
 import content.Title;
+import content.project.Project;
 import exceptions.page_exceptions.PageDoesNotExistsException;
 import exceptions.user_exceptions.EmailIsAlreadyRegisteredException;
 import exceptions.user_exceptions.SelectorIsNotRegisterdWithAnyUserException;
@@ -25,6 +26,7 @@ import exceptions.user_exceptions.UserIDDoesNotExistsException;
 import exceptions.user_exceptions.UserNameDoesNotExistsException;
 import exceptions.user_exceptions.UsernameIsAlreadyRegisteredException;
 import file.MyFile;
+import project.ProjectSummary;
 import user.Role;
 import user.User;
 
@@ -696,7 +698,7 @@ public class DatabaseBridge {
 				}
 
 				user.setPhoneNumber(resultSet.getString(18));
-				if (resultSet.getDate(19) != null) {
+				if (resultSet.getDate(20) != null) {
 					user.setBirthDate(resultSet.getDate(19).toString());
 				}
 			} else {
@@ -2264,4 +2266,158 @@ public class DatabaseBridge {
 		return todo_array;
 	}
 	
+	public String getProjectName(String key) {
+		return null;
+
+	}
+
+	public Project getProject(String key) {
+		Project project = null;
+
+		// Queries
+		String getProjectDetailsQuery = "SELECT * FROM project WHERE project_id = ? ";
+
+		Connection connection = null;
+
+		// Statements
+		PreparedStatement getProjectDetailsPreparedStatement = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			getProjectDetailsPreparedStatement = connection.prepareStatement(getProjectDetailsQuery);
+
+			getProjectDetailsPreparedStatement.setString(1, key);
+
+			ResultSet projectDetailsResultSet = getProjectDetailsPreparedStatement.executeQuery();
+
+			if (projectDetailsResultSet.next()) {
+				project = new Project(String.valueOf(projectDetailsResultSet.getInt(1)),
+						projectDetailsResultSet.getString(2), projectDetailsResultSet.getString(3));
+			} else {
+
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PropertyVetoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return project;
+	}
+
+	// this method provided to receive a list of project that this user has with
+	// them
+	public ArrayList<project.ProjectSummary> getProjectsNames(int user_id) throws Throwable {
+		ArrayList<project.ProjectSummary> projects = new ArrayList<>();
+
+		// query
+		String getProjectidQuery = "SELECT * FROM membership WHERE membership_user_id = ?";
+
+		// statement
+		PreparedStatement getProjectidStatement = null;
+
+		// result set
+		ResultSet resultSet = null;
+
+		// connection
+		Connection connection;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			getProjectidStatement = connection.prepareStatement(getProjectidQuery);
+			getProjectidStatement.setInt(1, user_id);
+			resultSet = getProjectidStatement.executeQuery();
+
+			while (resultSet.next()) {
+
+				String project_id = resultSet.getInt("membership_project_id") + "";
+				String project_name = getProjectName(Integer.parseInt(project_id));
+				project.ProjectSummary summary = new ProjectSummary(project_name, project_id);
+				projects.add(summary);
+
+			}
+
+		} catch (Throwable e) {
+			throw e;
+		}
+
+		return projects;
+	}
+
+	public String getProjectName(int project_id) throws Throwable {
+		String project_name = null;
+
+		// query
+		String getProjectNameQuery = "SELECT * FROM project WHERE project_id = ?";
+
+		// statements
+		PreparedStatement getProjectNameStatment = null;
+
+		// result set for get project id
+		ResultSet getProjectNameSet = null;
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			getProjectNameStatment = connection.prepareStatement(getProjectNameQuery);
+			getProjectNameStatment.setInt(1, project_id);
+			getProjectNameSet = getProjectNameStatment.executeQuery();
+
+			if (getProjectNameSet.next()) {
+				project_name = getProjectNameSet.getString("project_name");
+			}
+		} catch (Throwable e) {
+			connection.rollback();
+			throw e;
+		}
+
+		return project_name;
+	}
+
+	// this method return a project complete with their files and other after
+	// click on them in the page
+	public void getProject(int project_id) {
+
+	}
+
+	public boolean addRequest(String request_user_name, String request_content, Date request_date,
+			String request_user_email) throws Throwable {
+		boolean result = false;
+
+		// query
+		String addRequestQuery = "INSERT INTO request (request_content,request_user_name,request_date, request_user_email) VALUES (?,?,?,?)";
+
+		// statement
+		PreparedStatement addRequestStatment = null;
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			connection.setAutoCommit(false);
+			addRequestStatment = connection.prepareStatement(addRequestQuery);
+			addRequestStatment.setString(1, request_content);
+			addRequestStatment.setString(2, request_user_name);
+			addRequestStatment.setString(3, request_date.toString());
+			addRequestStatment.setString(4, request_user_email);
+			addRequestStatment.executeUpdate();
+			connection.commit();
+			result = true;
+		} catch (Throwable e) {
+			connection.rollback();
+			throw e;
+		}
+		return result;
+	}
+
+	// public ArrayList<request.Request>
 }
