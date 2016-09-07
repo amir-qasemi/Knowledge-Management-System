@@ -17,6 +17,7 @@ import content.EditType;
 import content.Message;
 import content.Page;
 import content.Title;
+import content.project.Project;
 import exceptions.page_exceptions.PageDoesNotExistsException;
 import exceptions.user_exceptions.EmailIsAlreadyRegisteredException;
 import exceptions.user_exceptions.SelectorIsNotRegisterdWithAnyUserException;
@@ -2178,6 +2179,55 @@ public class DatabaseBridge {
 			throw e;
 		}
 		return members;
+	}
+	
+	public String getProjectName(String key){
+		return null;
+		
+	}
+	
+	public Project getProject(String key){
+		Project project = null;
+		
+		//Queries
+		String getProjectDetailsQuery = "SELECT * FROM project WHERE project_id = ? ";
+		
+		Connection connection = null;
+		
+		//Statements
+		PreparedStatement getProjectDetailsPreparedStatement = null;
+		
+		
+		try {
+			connection = ConnectionManagager.getConnection();
+			getProjectDetailsPreparedStatement = connection.prepareStatement(getProjectDetailsQuery);
+			
+			getProjectDetailsPreparedStatement.setString(1, key);
+			
+			ResultSet projectDetailsResultSet = getProjectDetailsPreparedStatement.executeQuery();
+			
+			if(projectDetailsResultSet.next()){
+				project = new Project(String.valueOf(projectDetailsResultSet.getInt(1)), projectDetailsResultSet.getString(2), projectDetailsResultSet.getString(3));
+			} else {
+				
+			}
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PropertyVetoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return project;
 	}
 
 	// this method provided to receive a list of project that this user has with

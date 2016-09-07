@@ -1,3 +1,11 @@
-/database/
 /actions/
+/content/
+/cookie/
+/database/
+/exceptions/
+/file/
+/interceptors/
+/message/
 /project/
+/user/
+/util/
