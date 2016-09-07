@@ -2307,4 +2307,35 @@ public class DatabaseBridge {
 
 	}
 
+	public boolean addRequest(String request_user_name, String request_content, Date request_date,
+			String request_user_email) throws Throwable {
+		boolean result = false;
+
+		// query
+		String addRequestQuery = "INSERT INTO request (request_content,request_user_name,request_date, request_user_email) VALUES (?,?,?,?)";
+
+		// statement
+		PreparedStatement addRequestStatment = null;
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			connection.setAutoCommit(false);
+			addRequestStatment = connection.prepareStatement(addRequestQuery);
+			addRequestStatment.setString(1, request_content);
+			addRequestStatment.setString(2, request_user_name);
+			addRequestStatment.setDate(3, (java.sql.Date) request_date);
+			addRequestStatment.setString(4, request_user_email);
+			connection.commit();
+			result = true;
+		} catch (Throwable e) {
+			connection.rollback();
+			throw e;
+		}
+		return result;
+	}
+
+	// public ArrayList<request.Request>
 }
