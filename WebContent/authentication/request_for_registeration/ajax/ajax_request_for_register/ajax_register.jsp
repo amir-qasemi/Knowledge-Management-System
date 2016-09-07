@@ -7,8 +7,8 @@
 	$(function() {
 		$("#actionRegisterSuccessContainer").hide();
 		$("#actionRegisterErrorContainer").hide();
-		$(".register").on("click", function() {
-			ajaxlogin().done(function(data) {
+		$("#register").on("click", function() {
+			ajaxRegisterRequest().done(function(data) {
 				$("body").append(data);
 			}).fail(function(xhr, status, errorThrow) {
 				allert("Ajax Error :" + errorThrow);
@@ -18,7 +18,7 @@
 		})
 	});
 
-	function ajaxlogin() {
+	function ajaxRegisterRequest() {
 		var dynamicdata = {};
 		dynamicdata["request_content"] = $("#request_content").val();
 		dynamicdata["request_user_name"] = $("#requst_user_name").val();

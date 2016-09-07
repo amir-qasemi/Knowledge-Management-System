@@ -698,7 +698,7 @@ public class DatabaseBridge {
 				}
 
 				user.setPhoneNumber(resultSet.getString(18));
-				if (resultSet.getDate(19) != null) {
+				if (resultSet.getDate(20) != null) {
 					user.setBirthDate(resultSet.getDate(19).toString());
 				}
 			} else {
@@ -2180,39 +2180,38 @@ public class DatabaseBridge {
 		}
 		return members;
 	}
-	
-	public String getProjectName(String key){
+
+	public String getProjectName(String key) {
 		return null;
-		
+
 	}
-	
-	public Project getProject(String key){
+
+	public Project getProject(String key) {
 		Project project = null;
-		
-		//Queries
+
+		// Queries
 		String getProjectDetailsQuery = "SELECT * FROM project WHERE project_id = ? ";
-		
+
 		Connection connection = null;
-		
-		//Statements
+
+		// Statements
 		PreparedStatement getProjectDetailsPreparedStatement = null;
-		
-		
+
 		try {
 			connection = ConnectionManagager.getConnection();
 			getProjectDetailsPreparedStatement = connection.prepareStatement(getProjectDetailsQuery);
-			
+
 			getProjectDetailsPreparedStatement.setString(1, key);
-			
+
 			ResultSet projectDetailsResultSet = getProjectDetailsPreparedStatement.executeQuery();
-			
-			if(projectDetailsResultSet.next()){
-				project = new Project(String.valueOf(projectDetailsResultSet.getInt(1)), projectDetailsResultSet.getString(2), projectDetailsResultSet.getString(3));
+
+			if (projectDetailsResultSet.next()) {
+				project = new Project(String.valueOf(projectDetailsResultSet.getInt(1)),
+						projectDetailsResultSet.getString(2), projectDetailsResultSet.getString(3));
 			} else {
-				
+
 			}
-			
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -2223,10 +2222,7 @@ public class DatabaseBridge {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+
 		return project;
 	}
 
@@ -2328,6 +2324,7 @@ public class DatabaseBridge {
 			addRequestStatment.setString(2, request_user_name);
 			addRequestStatment.setString(3, request_date.toString());
 			addRequestStatment.setString(4, request_user_email);
+			addRequestStatment.executeUpdate();
 			connection.commit();
 			result = true;
 		} catch (Throwable e) {

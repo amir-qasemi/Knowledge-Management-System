@@ -123,16 +123,24 @@ keyframes slide { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateY
-(0%);
 
-    
+
+:
+
+ 
+
+translateY
+
+
+(0%);
 }
 }
 @
@@ -144,16 +152,24 @@ translateY
 100%
 {
 opacity
+
+
 :
+
  
+
 1;
 -webkit-transform
-:
- 
-translateY
-(0%);
 
-    
+
+:
+
+ 
+
+translateY
+
+
+(0%);
 }
 }
 .login-panel {
@@ -174,8 +190,14 @@ translateY
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
-header input[type="text"], header input[type="password"] , header input[type="email"], header input[type="checkbox"], #request_content
-	{
+header input[type="text"], header input[type="password"], header input[type="email"],
+	header input[type="checkbox"], #request_content {
+	border-radius: 0;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.btn-dark {
 	border-radius: 0;
 	color: #fff;
 	background-color: rgba(0, 0, 0, 0.4);

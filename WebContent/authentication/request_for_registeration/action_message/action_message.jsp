@@ -7,7 +7,7 @@
 <div class="alert panel" id="actionRegisterErrorContainer" role="alert">
 	<button type="button" class="close" id="closeRegisterErrorMessage"
 		aria-hidden="false">×</button>
-	<i class="fa fa-bug"></i> :
+	<i class="fa fa-bug"></i> : <br /> Success fully added message !
 	<div id="errorRegisterMessageDiv">
 		<s:actionerror theme="simple" escape="true" name="actionError"
 			cssClass="actionError" />
@@ -18,7 +18,8 @@
 <br />
 
 <!-- this area for show the Success message on register page -->
-<div class="alert panel" id="actionRegisterSuccessContainer" role="alert">
+<div class="alert panel" id="actionRegisterSuccessContainer"
+	role="alert">
 	<button type="button" class="close" id="closeRegisterSuccessDive"
 		aria-hidden="true">×</button>
 	<i class="glyphicon glyphicon-saved"></i>

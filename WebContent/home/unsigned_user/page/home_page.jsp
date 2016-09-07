@@ -71,10 +71,10 @@
 								<h2>Knowledge Management System</h2>
 							</div>
 							<div class="panel-body ">
-								<button class="btn btn-default" id="signin-button">
+								<button class="btn btn-dark btn-lg" id="signin-button">
 									Signin <i class="fa fa-sign-in fa-3x"> </i>
 								</button>
-								<button class="btn btn-default" id="registration-button">
+								<button class="btn btn-dark btn-lg" id="registration-button">
 									Request Registration <i class="fa fa-user-plus fa-3x"
 										aria-hidden="true"></i>
 								</button>
@@ -108,7 +108,7 @@
 										</label>
 									</div>
 									<span class="pull-right"> <br /> <input type="button"
-										class="btn btn-dark btn-lg login" value="Signin">
+										class="btn btn-dark btn-lg" id="login" value="Signin">
 										<input type="Reset" class="btn btn-dark btn-lg">
 									</span>
 								</form>
@@ -145,19 +145,18 @@
 											id="request_user_email" class="form-control">
 									</div>
 									<span class="pull-right"> <br /> <input type="button"
-										class="btn btn-dark btn-lg register" value="Register">
+										class="btn btn-dark btn-lg" id="register" value="Register">
 										<input type="Reset" class="btn btn-dark btn-lg">
 									</span>
 								</form>
 							</div>
 							<div class="panel-footer my-footer">
-								<!-- this area for show error message -->
 								<%@ include
 									file="../../../authentication/request_for_registeration/action_message/action_message.jsp"%>
 								<%@ include
 									file="../../../authentication/request_for_registeration/ajax/ajax_register_action_message/ajax_register_error_message.jsp"%>
 								<%@ include
-									file="../../../authentication/request_for_registeration/ajax/ajax_register_action_message/ajax_register_succes_message.jsp"%>
+									file="../../../authentication/request_for_registeration/ajax/ajax_register_action_message/ajax_register_error_message.jsp"%>
 							</div>
 						</div>
 						<!-- /Request Registration Panel -->
@@ -251,23 +250,6 @@
 		<p>Copyright &copy; summer 2016 - 2017</p>
 	</footer>
 
-	<!-- jQuery library -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-	<!-- JQuery UI -->
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
-	<!-- Latest compiled Bootstrap JavaScript -->
-	<script
-		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	<!-- Add Google Maps -->
-	<script
-		src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB0SoxhS7i4yawty8Gsh7ybuzhZyEKQD8Q"></script>
-
-
 	<!-- content -->
 	<!-- including java script file -->
 	<%@ include file="../include/js_home_page_includs.jsp"%>
@@ -281,8 +263,6 @@
 	<div style="visibility: hidden;">
 		<%@ include
 			file="../../../authentication/signin/ajax/ajax_request_for_sign_in/ajax_sign_in.jsp"%>
-	</div>
-	<div style="visibility: hidden;">
 		<%@ include
 			file="../../../authentication/request_for_registeration/ajax/ajax_request_for_register/ajax_register.jsp"%>
 	</div>
