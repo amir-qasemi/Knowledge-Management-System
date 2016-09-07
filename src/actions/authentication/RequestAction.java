@@ -13,7 +13,7 @@ import database.DatabaseBridge;
 @ResultPath(value = "/")
 @Action(value = "registerRequest", results = {
 		@Result(name = ActionSupport.ERROR, location = "authentication/request_for_registeration/ajax/ajax_register_action_message/ajax_register_error_message.jsp"),
-		@Result(name = ActionSupport.SUCCESS, location = "authentication/request_for_registeration/ajax/ajax_register_action_message/ajax_register_success_message.jsp") })
+		@Result(name = ActionSupport.SUCCESS, location = "authentication/request_for_registeration/ajax/ajax_register_action_message/ajax_register_succes_message.jsp") })
 public class RequestAction extends ActionSupport {
 
 	/**
@@ -33,6 +33,7 @@ public class RequestAction extends ActionSupport {
 			addActionMessage("Success fully added your request the result send your email !");
 			result = SUCCESS;
 		} catch (Throwable e) {
+			addActionError(e.getLocalizedMessage());
 			e.printStackTrace();
 		}
 

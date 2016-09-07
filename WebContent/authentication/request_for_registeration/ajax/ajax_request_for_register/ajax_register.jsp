@@ -5,8 +5,8 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#actionErrorContainer").hide();
-		$("#actionSuccessContainer").hide();
+		$("#actionRegisterSuccessContainer").hide();
+		$("#actionRegisterErrorContainer").hide();
 		$(".register").on("click", function() {
 			ajaxlogin().done(function(data) {
 				$("body").append(data);

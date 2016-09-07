@@ -2326,7 +2326,7 @@ public class DatabaseBridge {
 			addRequestStatment = connection.prepareStatement(addRequestQuery);
 			addRequestStatment.setString(1, request_content);
 			addRequestStatment.setString(2, request_user_name);
-			addRequestStatment.setDate(3, (java.sql.Date) request_date);
+			addRequestStatment.setString(3, request_date.toString());
 			addRequestStatment.setString(4, request_user_email);
 			connection.commit();
 			result = true;

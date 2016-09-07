@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html>
 
 <script type="text/javascript">
 	$(function() {
 		$("#actionErrorContainer").hide();
 		$("#actionSuccessContainer").hide();
-		$(".log").on("click", function() {
+		$(".login").on("click", function() {
 			ajaxlogin().done(function(data) {
 				$("body").append(data);
 			}).fail(function(xhr, status, errorThrow) {

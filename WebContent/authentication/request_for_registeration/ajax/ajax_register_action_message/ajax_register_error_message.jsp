@@ -7,8 +7,8 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#actionErrorContainer").show();
-		$("#errorMessageDiv").html($("#ajaxSigninActionError").html());
+		$("#actionRegisterErrorContainer").show();
+		$("#errorRegisterMessageDiv").html($("#ajaxSigninActionError").html());
 
 		$("#ajaxSigninActionError").remove();
 	});

@@ -9,8 +9,8 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#actionSuccessContainer").show();
-		$("#successMessageDiv").html($("#ajaxSigninActionMessage").html());
+		$("#closeRegisterSuccessDive").show();
+		$("#successRegisterMessageDiv").html($("#ajaxSigninActionMessage").html());
 
 		$("#ajaxSigninActionMessage").remove();
 	});
