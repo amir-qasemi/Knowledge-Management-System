@@ -216,126 +216,89 @@
 						<h1>Received request for register</h1>
 					</div>
 
-					<!-- ------------------------- request table -->
-
-					<div class="col-xs-12 col-sm-3 widget-container-col ui-sortable"
-						id="widget-container-col-6">
-
-						<div class="widget-box widget-color-dark ui-sortable-handle"
-							id="widget-box-8">
-							<div class="widget-header">
-								<h5 class="widget-title bigger lighter">
-									<!-- add request_date here -->
-								</h5>
-							</div>
-
-							<div class="widget-body">
-								<div class="widget-toolbox" id="widget-toolbox-1">
-									<div class="btn-toolbar">
-										<div class="btn-group">
-											<button class="btn btn-sm btn-success btn-white btn-round">
-												<i class="ace-icon fa fa-check bigger-110 green"></i>
-												Approve
-											</button>
-
-											<button class="btn btn-sm btn-danger btn-white btn-round">
-												<i class="ace-icon fa fa-times bigger-110 red2"></i> Reject
-											</button>
-										</div>
-									</div>
-								</div>
-
-								<div class="widget-main padding-16">
-									<!-- add request_content here -->
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<!-- ----------------------- table -->
-
+					<div class="table-header">Received request for register !</div>
 					<div class="row">
 						<div class="col-xs-12">
 							<table id="simple-table"
 								class="table  table-bordered table-hover">
 								<thead>
 									<tr>
-										<th>Domain</th>
-										<th>Price</th>
-										<th class="hidden-480">Clicks</th>
-
+										<th>ID</th>
+										<th>User name</th>
+										<th>Email</th>
 										<th><i
 											class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-											Update</th>
-										<th class="hidden-480">Status</th>
+											Date</th>
+										<th>Message</th>
 
-										<th> Actions </th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 
 								<tbody>
-									<tr>
-										<td><a href="#">ace.com</a></td>
-										<td>$45</td>
-										<td class="hidden-480">3,330</td>
-										<td>Feb 12</td>
+									<s:iterator status="stat" value="requests">
+										<tr>
+											<td><s:property value="request_id" /></td>
+											<td><s:property value="request_user_name" /></td>
+											<td><s:property value="request_user_email" /></td>
+											<td><s:property value="request_date" /></td>
+											<td><s:property value="request_content" /></td>
 
-										<td class="hidden-480"><span
-											class="label label-sm label-warning">Expiring</span></td>
-
-										<td>
-											<div class="hidden-sm hidden-xs btn-group">
-												<button class="btn btn-xs btn-success">
-													<i class="ace-icon fa fa-check bigger-120"></i>
-												</button>
-
-												<button class="btn btn-xs btn-info">
-													<i class="ace-icon fa fa-pencil bigger-120"></i>
-												</button>
-
-												<button class="btn btn-xs btn-danger">
-													<i class="ace-icon fa fa-trash-o bigger-120"></i>
-												</button>
-
-												<button class="btn btn-xs btn-warning">
-													<i class="ace-icon fa fa-flag bigger-120"></i>
-												</button>
-											</div>
-
-											<div class="hidden-md hidden-lg">
-												<div class="inline pos-rel">
-													<button class="btn btn-minier btn-primary dropdown-toggle"
-														data-toggle="dropdown" data-position="auto">
-														<i class="ace-icon fa fa-cog icon-only bigger-110"></i>
+											<td>
+												<div class="hidden-sm hidden-xs btn-group">
+													<button class="btn btn-xs btn-success">
+														<i class="ace-icon fa fa-check bigger-120"></i>
 													</button>
 
-													<ul
-														class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-														<li><a href="#" class="tooltip-info"
-															data-rel="tooltip" title="" data-original-title="View">
-																<span class="blue"> <i
-																	class="ace-icon fa fa-search-plus bigger-120"></i>
-															</span>
-														</a></li>
+													<button class="btn btn-xs btn-info">
+														<i class="ace-icon fa fa-pencil bigger-120"></i>
+													</button>
 
-														<li><a href="#" class="tooltip-success"
-															data-rel="tooltip" title="" data-original-title="Edit">
-																<span class="green"> <i
-																	class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-															</span>
-														</a></li>
+													<button class="btn btn-xs btn-danger">
+														<i class="ace-icon fa fa-trash-o bigger-120"></i>
+													</button>
 
-														<li><a href="#" class="tooltip-error"
-															data-rel="tooltip" title="" data-original-title="Delete">
-																<span class="red"> <i
-																	class="ace-icon fa fa-trash-o bigger-120"></i>
-															</span>
-														</a></li>
-													</ul>
+													<button class="btn btn-xs btn-warning">
+														<i class="ace-icon fa fa-flag bigger-120"></i>
+													</button>
 												</div>
-											</div>
-										</td>
-									</tr>
+
+												<div class="hidden-md hidden-lg">
+													<div class="inline pos-rel">
+														<button class="btn btn-minier btn-primary dropdown-toggle"
+															data-toggle="dropdown" data-position="auto">
+															<i class="ace-icon fa fa-cog icon-only bigger-110"></i>
+														</button>
+
+														<ul
+															class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+															<li><a href="#" class="tooltip-info"
+																data-rel="tooltip" title="" data-original-title="View">
+																	<span class="blue"> <i
+																		class="ace-icon fa fa-search-plus bigger-120"></i>
+																</span>
+															</a></li>
+
+															<li><a href="#" class="tooltip-success"
+																data-rel="tooltip" title="" data-original-title="Edit">
+																	<span class="green"> <i
+																		class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+																</span>
+															</a></li>
+
+															<li><a href="#" class="tooltip-error"
+																data-rel="tooltip" title="" data-original-title="Delete">
+																	<span class="red"> <i
+																		class="ace-icon fa fa-trash-o bigger-120"></i>
+																</span>
+															</a></li>
+														</ul>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</s:iterator>
 
 									<tr class="detail-row">
 										<td colspan="8">
@@ -456,9 +419,6 @@
 					</div>
 
 					<!-- -----------------------/ table -->
-
-
-					<!-- -------------------------/ request table -->
 
 				</div>
 

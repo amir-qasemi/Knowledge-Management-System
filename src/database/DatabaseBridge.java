@@ -27,6 +27,7 @@ import exceptions.user_exceptions.UserNameDoesNotExistsException;
 import exceptions.user_exceptions.UsernameIsAlreadyRegisteredException;
 import file.MyFile;
 import project.ProjectSummary;
+import request.Request;
 import user.Role;
 import user.User;
 
@@ -2180,21 +2181,15 @@ public class DatabaseBridge {
 		}
 		return members;
 	}
-	
-	
-	
-	
-	
-	
-	
-	public void addTodoList(String todo_list_project_id ,String todo_list_description , String todo_list_time_stamp , boolean todo_list_is_completed) throws Throwable {
+
+	public void addTodoList(String todo_list_project_id, String todo_list_description, String todo_list_time_stamp,
+			boolean todo_list_is_completed) throws Throwable {
 
 		// query
 		String addTodoListItemQuery = "INSERT INTO todo_list (todo_list_item_description , todo_list_item_time_stamp , todo_list_item_is_completed , todo_list_item_project_id) VALUES (? , ? , ? , ?)";
 
 		// statements
 		PreparedStatement addProjectTodoListItemsStatment = null;
-
 
 		// connection
 		Connection connection = null;
@@ -2214,16 +2209,9 @@ public class DatabaseBridge {
 			throw e;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
 
-	public ArrayList<actions.todo.todo_item> getTodoList(String project_id) throws Throwable {
-		ArrayList<actions.todo.todo_item> todo_array = new ArrayList<>();
+	public ArrayList<content.todo.ToDoITem> getTodoList(String project_id) throws Throwable {
+		ArrayList<content.todo.ToDoITem> todo_array = new ArrayList<>();
 
 		// query
 		String getProjectidQuery = "SELECT * FROM todo WHERE project_id = ?";
@@ -2244,19 +2232,18 @@ public class DatabaseBridge {
 			getProjectTodoListItemsSet = getProjectTodoListItemsStatment.executeQuery();
 
 			while (getProjectTodoListItemsSet.next()) {
-				actions.todo.todo_item item = new actions.todo.todo_item();
+				content.todo.ToDoITem item = new content.todo.ToDoITem();
 				item.setDescription(getProjectTodoListItemsSet.getString("todo_list_item_description"));
 				item.setProjectID(getProjectTodoListItemsSet.getInt("todo_list_item_project_id"));
-				if(getProjectTodoListItemsSet.getInt("todo_list_item_is_completed") == 0){
+				if (getProjectTodoListItemsSet.getInt("todo_list_item_is_completed") == 0) {
 					item.setIsCompleted(true);
-				}
-				else if(getProjectTodoListItemsSet.getInt("todo_list_item_is_completed") == 1){
+				} else if (getProjectTodoListItemsSet.getInt("todo_list_item_is_completed") == 1) {
 					item.setIsCompleted(false);
 				}
 				item.setTimeStamp(getProjectTodoListItemsSet.getDate("todo_list_item_time_stamp").toString());
 				item.setProjectID(Integer.parseInt(project_id));
 				todo_array.add(item);
-				
+
 			}
 		} catch (Throwable e) {
 			connection.rollback();
@@ -2265,7 +2252,7 @@ public class DatabaseBridge {
 
 		return todo_array;
 	}
-	
+
 	public String getProjectName(String key) {
 		return null;
 
@@ -2419,5 +2406,40 @@ public class DatabaseBridge {
 		return result;
 	}
 
-	// public ArrayList<request.Request>
+	public ArrayList<request.Request> getReceivedRequests() throws Throwable {
+		ArrayList<request.Request> requests = new ArrayList<>();
+
+		// query
+		String getRequestsQuery = "SELECT * FROM request";
+
+		// statement
+		PreparedStatement getRequestStatement = null;
+
+		// result set
+		ResultSet getRequestSet = null;
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			getRequestStatement = connection.prepareStatement(getRequestsQuery);
+			getRequestSet = getRequestStatement.executeQuery();
+
+			while (getRequestSet.next()) {
+				request.Request request = new Request();
+				request.setRequest_id(getRequestSet.getInt("request_id"));
+				request.setRequest_content(getRequestSet.getString("request_content"));
+				request.setRequest_date(getRequestSet.getString("request_date"));
+				request.setRequest_user_name(getRequestSet.getString("request_user_name"));
+				request.setRequest_user_email(getRequestSet.getString("request_user_email"));
+				requests.add(request);
+			}
+
+		} catch (Throwable e) {
+			throw e;
+		}
+
+		return requests;
+	}
 }
