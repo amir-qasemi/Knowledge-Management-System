@@ -5,7 +5,7 @@ $(function() {
 		}).fail(function(xhr, status, errorThrow) {
 			allert("Ajax Error :" + errorThrow);
 		}).always(function(xhr, status) {
-			//alert("Ajax Finished -> press f12 -> go to console tab");
+			// alert("Ajax Finished -> press f12 -> go to console tab");
 		});
 	})
 });
