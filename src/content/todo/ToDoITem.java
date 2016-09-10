@@ -1,6 +1,6 @@
-package actions.todo;
+package content.todo;
 
-public class ToDoItem {
+public class ToDoITem {
 	
 	private String description;
 	private String timeStamp;

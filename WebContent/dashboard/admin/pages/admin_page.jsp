@@ -58,7 +58,7 @@
 
 										<div>
 											<a href="sendMessageRedirect"
-												class="btn btn-block btn-inverse"> <span>See</span>
+												class="btn btn-block btn-inverse"> <span>Open</span>
 											</a>
 										</div>
 									</div>
@@ -87,7 +87,7 @@
 
 										<div>
 											<a href="seeMesaages" class="btn btn-block btn-warning">
-												<span>See</span>
+												<span>Open</span>
 											</a>
 										</div>
 									</div>
@@ -115,7 +115,7 @@
 
 										<div>
 											<a href="sendFileRedirect" class="btn btn-block btn-primary">
-												<span>See</span>
+												<span>Open</span>
 											</a>
 										</div>
 									</div>
@@ -144,7 +144,7 @@
 
 										<div>
 											<a href="seeUploadedFiles" class="btn btn-block btn-danger">
-												<span>See</span>
+												<span>Open</span>
 											</a>
 										</div>
 									</div>
@@ -172,7 +172,7 @@
 										</div>
 
 										<div>
-											<a href="wikiPage" class="btn btn-block btn-success"> <span>See</span>
+											<a href="wikiPage" class="btn btn-block btn-success"> <span>Open</span>
 											</a>
 										</div>
 									</div>
@@ -200,7 +200,7 @@
 
 										<div>
 											<a href="projectRedirect" class="btn btn-block btn-pink">
-												<span>See</span>
+												<span>Open</span>
 											</a>
 										</div>
 									</div>
@@ -216,269 +216,134 @@
 						<h1>Received request for register</h1>
 					</div>
 
-					<!-- ------------------------- request table -->
-
-					<div class="col-xs-12 col-sm-3 widget-container-col ui-sortable"
-						id="widget-container-col-6">
-
-						<div class="widget-box widget-color-dark ui-sortable-handle"
-							id="widget-box-8">
-							<div class="widget-header">
-								<h5 class="widget-title bigger lighter">
-									<!-- add request_date here -->
-								</h5>
-							</div>
-
-							<div class="widget-body">
-								<div class="widget-toolbox" id="widget-toolbox-1">
-									<div class="btn-toolbar">
-										<div class="btn-group">
-											<button class="btn btn-sm btn-success btn-white btn-round">
-												<i class="ace-icon fa fa-check bigger-110 green"></i>
-												Approve
-											</button>
-
-											<button class="btn btn-sm btn-danger btn-white btn-round">
-												<i class="ace-icon fa fa-times bigger-110 red2"></i> Reject
-											</button>
-										</div>
-									</div>
-								</div>
-
-								<div class="widget-main padding-16">
-									<!-- add request_content here -->
-								</div>
-							</div>
-						</div>
-					</div>
-
 					<!-- ----------------------- table -->
-
+					<div class="table-header col col-xs-6 ">Received request for
+						register !</div>
 					<div class="row">
 						<div class="col-xs-12">
 							<table id="simple-table"
 								class="table  table-bordered table-hover">
 								<thead>
 									<tr>
-										<th>Domain</th>
-										<th>Price</th>
-										<th class="hidden-480">Clicks</th>
-
+										<th>ID</th>
+										<th>User name</th>
 										<th><i
 											class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-											Update</th>
-										<th class="hidden-480">Status</th>
+											Date</th>
 
-										<th> Actions </th>
+										<th>Actions</th>
+
+										<th style="visibility: hidden;">Content</th>
+										<th style="visibility: hidden;">Email</th>
+
 									</tr>
 								</thead>
 
 								<tbody>
-									<tr>
-										<td><a href="#">ace.com</a></td>
-										<td>$45</td>
-										<td class="hidden-480">3,330</td>
-										<td>Feb 12</td>
+									<s:iterator status="stat" value="requests">
+										<tr>
+											<td class="id"><s:property value="request_id" /></td>
+											<td class="userName"><s:property
+													value="request_user_name" /></td>
+											<td class="date"><s:property value="request_date" /></td>
 
-										<td class="hidden-480"><span
-											class="label label-sm label-warning">Expiring</span></td>
-
-										<td>
-											<div class="hidden-sm hidden-xs btn-group">
-												<button class="btn btn-xs btn-success">
-													<i class="ace-icon fa fa-check bigger-120"></i>
-												</button>
-
-												<button class="btn btn-xs btn-info">
-													<i class="ace-icon fa fa-pencil bigger-120"></i>
-												</button>
-
-												<button class="btn btn-xs btn-danger">
-													<i class="ace-icon fa fa-trash-o bigger-120"></i>
-												</button>
-
-												<button class="btn btn-xs btn-warning">
-													<i class="ace-icon fa fa-flag bigger-120"></i>
-												</button>
-											</div>
-
-											<div class="hidden-md hidden-lg">
-												<div class="inline pos-rel">
-													<button class="btn btn-minier btn-primary dropdown-toggle"
-														data-toggle="dropdown" data-position="auto">
-														<i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-													</button>
-
-													<ul
-														class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-														<li><a href="#" class="tooltip-info"
-															data-rel="tooltip" title="" data-original-title="View">
-																<span class="blue"> <i
-																	class="ace-icon fa fa-search-plus bigger-120"></i>
-															</span>
-														</a></li>
-
-														<li><a href="#" class="tooltip-success"
-															data-rel="tooltip" title="" data-original-title="Edit">
-																<span class="green"> <i
-																	class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-															</span>
-														</a></li>
-
-														<li><a href="#" class="tooltip-error"
-															data-rel="tooltip" title="" data-original-title="Delete">
-																<span class="red"> <i
-																	class="ace-icon fa fa-trash-o bigger-120"></i>
-															</span>
-														</a></li>
-													</ul>
+											<td>
+												<div class="hidden-sm hidden-xs btn-group">
+													<a id="display" class="display btn btn-minier btn-danger">
+														<i class="ace-icon fa fa-eye bigger-120"></i> Display
+													</a>
 												</div>
-											</div>
-										</td>
-									</tr>
+											</td>
 
-									<tr class="detail-row">
-										<td colspan="8">
-											<div class="table-detail">
-												<div class="row">
-													<div class="col-xs-12 col-sm-2">
-														<div class="text-center">
-															<img height="150"
-																class="thumbnail inline no-margin-bottom"
-																alt="Domain Owner's Avatar"
-																src="assets/images/avatars/profile-pic.jpg"> <br>
-															<div
-																class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-																<div class="inline position-relative">
-																	<a class="user-title-label" href="#"> <i
-																		class="ace-icon fa fa-circle light-green"></i> &nbsp;
-																		<span class="white">Alex M. Doe</span>
-																	</a>
-																</div>
-															</div>
-														</div>
-													</div>
+											<td class="content" style="visibility: hidden;"><s:property
+													value="request_content" /></td>
+											<td class="email" style="visibility: hidden;"><s:property
+													value="request_user_email" /></td>
 
-													<div class="col-xs-12 col-sm-7">
-														<div class="space visible-xs"></div>
-
-														<div class="profile-user-info profile-user-info-striped">
-															<div class="profile-info-row">
-																<div class="profile-info-name">Username</div>
-
-																<div class="profile-info-value">
-																	<span>alexdoe</span>
-																</div>
-															</div>
-
-															<div class="profile-info-row">
-																<div class="profile-info-name">Location</div>
-
-																<div class="profile-info-value">
-																	<i class="fa fa-map-marker light-orange bigger-110"></i>
-																	<span>Netherlands, Amsterdam</span>
-																</div>
-															</div>
-
-															<div class="profile-info-row">
-																<div class="profile-info-name">Age</div>
-
-																<div class="profile-info-value">
-																	<span>38</span>
-																</div>
-															</div>
-
-															<div class="profile-info-row">
-																<div class="profile-info-name">Joined</div>
-
-																<div class="profile-info-value">
-																	<span>2010/06/20</span>
-																</div>
-															</div>
-
-															<div class="profile-info-row">
-																<div class="profile-info-name">Last Online</div>
-
-																<div class="profile-info-value">
-																	<span>3 hours ago</span>
-																</div>
-															</div>
-
-															<div class="profile-info-row">
-																<div class="profile-info-name">About Me</div>
-
-																<div class="profile-info-value">
-																	<span>Bio</span>
-																</div>
-															</div>
-														</div>
-													</div>
-
-													<div class="col-xs-12 col-sm-3">
-														<div class="space visible-xs"></div>
-														<h4 class="header blue lighter less-margin">Send a
-															message to Alex</h4>
-
-														<div class="space-6"></div>
-
-														<form>
-															<fieldset>
-																<textarea class="width-100" resize="none"
-																	placeholder="Type something…"></textarea>
-															</fieldset>
-
-															<div class="hr hr-dotted"></div>
-
-															<div class="clearfix">
-																<label class="pull-left"> <input type="checkbox"
-																	class="ace"> <span class="lbl"> Email me
-																		a copy</span>
-																</label>
-
-																<button
-																	class="pull-right btn btn-sm btn-primary btn-white btn-round"
-																	type="button">
-																	Submit <i
-																		class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
-																</button>
-															</div>
-														</form>
-													</div>
-												</div>
-											</div>
-										</td>
-									</tr>
-
+										</tr>
+									</s:iterator>
 								</tbody>
 							</table>
 						</div>
 						<!-- /.span -->
 					</div>
-
 					<!-- -----------------------/ table -->
+					<!-- ------------- slider -->
+					<a style="visibility: hidden;" href="#my-modal" class="alert"
+						role="button" data-toggle="modal"></a>
+
+					<div id="my-modal" class="modal fade" tabindex="-1"
+						style="display: none;">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<form>
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">×</button>
+										<h3 class="smaller lighter blue no-margin">Received
+											message !</h3>
+									</div>
+
+									<div class="modal-body">
+										<div>
+											<label>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+												<input disabled="disabled" class="idLabel" type="text">
+											</label> <label>User name : <input disabled="disabled"
+												class="userNameLabel" type="text"></label>
+										</div>
+										<div>
+											<label>Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <input
+												disabled="disabled" class="dateLabel" type="text"></label> <label>Email
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input
+												disabled="disabled" class="emailLabel" type="text">
+											</label>
+										</div>
+
+										<label>Message :</label> <br />
+										<textarea disabled="disabled" class="messageLabel" rows="10"
+											cols="70"></textarea>
+
+									</div>
+
+									<div class="modal-footer">
+										<button class="btn btn-sm btn-danger pull-right"
+											data-dismiss="modal">
+											<i class="ace-icon fa fa-times"></i> Close
+										</button>
+										<button class="btn btn-sm btn-success pull-left"
+											data-dismiss="modal">
+											<i class="glyphicon glyphicon-ok"></i> Accept
+										</button>
+										<button class="btn btn-sm btn-warning pull-left"
+											data-dismiss="modal">
+											<i class="glyphicon glyphicon-remove"></i> Delete
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
 
 
-					<!-- -------------------------/ request table -->
+					<div style="visibility: hidden;">
+						<!-- this page include the action message but it is high in class ajaxUserPage.js -->
+						<%@ include
+							file="../../../authentication/action/action_message/action_message.jsp"%>
+						<%@ include
+							file="../../../authentication/signout/ajax/ajax_sign_out_action_message/ajax_sign_out_error_message.jsp"%>
+					</div>
 
+					<%@ include file="../includs/new_footer/new_footer.jsp"%>
+
+					<!-- PAGE CONTENT ENDS -->
 				</div>
-
-				<div style="visibility: hidden;">
-					<!-- this page include the action message but it is high in class ajaxUserPage.js -->
-					<%@ include
-						file="../../../authentication/action/action_message/action_message.jsp"%>
-					<%@ include
-						file="../../../authentication/signout/ajax/ajax_sign_out_action_message/ajax_sign_out_error_message.jsp"%>
-				</div>
-
-				<!-- PAGE CONTENT ENDS -->
+				<!-- ------------------/ slider -->
 			</div>
-			<!-- /.col -->
+			<!-- PAGE CONTENT ENDS -->
 		</div>
-		<!-- /.row -->
-		<!-- footer -->
-		<%@ include file="../includs/new_footer/new_footer.jsp"%>
+		<!-- /.col -->
 	</div>
-	<!-- /.page-content -->
 
 	<!-- this JS file control the user page actions -->
 	<%@ include

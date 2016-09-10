@@ -17,6 +17,30 @@
 	if ('ontouchstart' in document.documentElement)
 		document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
 				+ "<"+"/script>");
+
+	// ok this area provided to control the statment for allert
+	$(".display")
+			.on(
+					"click",
+					function() {
+						$(".idLabel").val(
+								$(this).parent().parent().siblings(".id")
+										.html());
+						$(".userNameLabel").val(
+								$(this).parent().parent().siblings(".userName")
+										.html());
+						$(".emailLabel").val(
+								$(this).parent().parent().siblings(".email")
+										.html());
+						$(".messageLabel").val(
+								$(this).parent().parent().siblings(".content")
+										.html());
+						$(".alert").click();
+						$(".dateLabel").val(
+								$(this).parent().parent().siblings(".date")
+										.html());
+					});
+	//---------------------------/alert...
 </script>
 <script src="templates/assets/js/bootstrap.min.js"></script>
 

@@ -7,7 +7,7 @@ import org.apache.struts2.convention.annotation.ResultPath;
 import com.opensymphony.xwork2.ActionSupport;
 
 @ResultPath(value = "/")
-@Action(value = "addTodo", results = { @Result(name = ActionSupport.SUCCESS),
+@Action(value = "addTodo", results = {
 		@Result(name = ActionSupport.ERROR, location = "project/todoList/todo_error_message.jsp") })
 public class AddToDoItemAction extends ActionSupport {
 
@@ -29,7 +29,6 @@ public class AddToDoItemAction extends ActionSupport {
 			return ERROR;
 		}
 
-		
 	}
 
 	public String getDescription() {

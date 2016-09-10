@@ -71,8 +71,7 @@
 
 	<!-- after adding error page on this pages we must add the AJAX controller for action in this section-->
 	<div style="visibility: hidden;">
-		<%@ include
-			file="../ajax/ajax_request_for_sign_in/ajax_sign_in.jsp"%>
+		<%@ include file="../ajax/ajax_request_for_sign_in/ajax_sign_in.jsp"%>
 	</div>
 
 	<!--

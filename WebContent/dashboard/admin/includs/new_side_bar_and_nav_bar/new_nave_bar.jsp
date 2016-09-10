@@ -31,8 +31,8 @@
 								Settings
 						</a></li>
 
-						<li><a href="#"> <i class="ace-icon fa fa-user"></i>
-								Profile
+						<li><a href="ProfileRedirect"> <i
+								class="ace-icon fa fa-user"></i> Profile
 						</a></li>
 
 						<li class="divider"></li>
