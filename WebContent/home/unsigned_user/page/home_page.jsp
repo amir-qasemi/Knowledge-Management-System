@@ -102,6 +102,18 @@
 											class="form-control password" id="password" name="password"
 											placeholder="Password">
 									</div>
+									
+									<!-- include captcha started-->
+
+									<div class="form-group">
+										
+
+									<%@ include file="../../../authentication/captcha/captcha.jsp"%>
+
+									</div>
+
+									<!-- include captcha finished-->
+
 									<div class="checkbox">
 										<label> <input type="checkbox" id="rememberMe"
 											name="rememberMe"> Remember me

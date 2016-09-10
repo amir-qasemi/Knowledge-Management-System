@@ -39,6 +39,8 @@
 									class="form-control password" id="password" name="password"
 									placeholder="Password">
 							</div>
+							
+							
 							<div class="checkbox">
 								<label><input type="checkbox" id="rememberMe"
 									name="rememberMe">Remember me</label>

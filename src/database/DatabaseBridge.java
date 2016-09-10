@@ -2222,8 +2222,8 @@ public class DatabaseBridge {
 	
 	
 
-	public ArrayList<actions.todo.todo_item> getTodoList(String project_id) throws Throwable {
-		ArrayList<actions.todo.todo_item> todo_array = new ArrayList<>();
+	public ArrayList<actions.todo.ToDoItem> getTodoList(String project_id) throws Throwable {
+		ArrayList<actions.todo.ToDoItem> todo_array = new ArrayList<>();
 
 		// query
 		String getProjectidQuery = "SELECT * FROM todo WHERE project_id = ?";
@@ -2244,7 +2244,7 @@ public class DatabaseBridge {
 			getProjectTodoListItemsSet = getProjectTodoListItemsStatment.executeQuery();
 
 			while (getProjectTodoListItemsSet.next()) {
-				actions.todo.todo_item item = new actions.todo.todo_item();
+				actions.todo.ToDoItem item = new actions.todo.ToDoItem();
 				item.setDescription(getProjectTodoListItemsSet.getString("todo_list_item_description"));
 				item.setProjectID(getProjectTodoListItemsSet.getInt("todo_list_item_project_id"));
 				if(getProjectTodoListItemsSet.getInt("todo_list_item_is_completed") == 0){

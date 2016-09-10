@@ -1,6 +1,6 @@
 package actions.todo;
 
-public class todo_item {
+public class ToDoItem {
 	
 	private String description;
 	private String timeStamp;

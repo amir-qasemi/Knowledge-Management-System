@@ -7,7 +7,9 @@
 		$("#actionErrorContainer").hide();
 		$("#actionSuccessContainer").hide();
 		$("#login").on("click", function() {
+			console.log("Ligin button Clicked");
 			ajaxlogin().done(function(data) {
+				
 				$("body").append(data);
 			}).fail(function(xhr, status, errorThrow) {
 				allert("Ajax Error :" + errorThrow);
@@ -21,6 +23,7 @@
 		var dynamicdata = {};
 		dynamicdata["userName"] = $("#userName").val();
 		dynamicdata["password"] = $("#password").val();
+		dynamicdata["captchaResult"] = $("#captchaResult").val();
 		dynamicdata["rememberMe"] = $("#rememberMe").is(":checked");
 		return $.ajax({
 			url : "signin",

@@ -42,11 +42,13 @@ public class SigninAction extends ActionSupport {
 	private String userName;
 	private String password;
 	private boolean rememberMe;
+	private boolean captchaResult;
 
 	// methods
 	@SuppressWarnings({ "rawtypes", "unchecked", "finally" })
 	public String execute() {
 		String result = ERROR;
+		System.out.println("Sign in action*********************************************");
 		try {
 			Map httpSession = (Map) ActionContext.getContext().get("session");
 			UserManager userManager = UserManager.getUserManager();
@@ -59,9 +61,9 @@ public class SigninAction extends ActionSupport {
 			if (user.isBanned() == true) {
 				result = ERROR;
 				throw new Exception("you are banned !");
-			} else if (roll == Role.ADMIN) {
+			} else if (roll == Role.ADMIN && captchaResult == true) {
 				result = "Admin";
-			} else if (roll == Role.USER) {
+			} else if (roll == Role.USER  && captchaResult == true) {
 				result = "User";
 			}
 			if (rememberMe) {
@@ -131,6 +133,14 @@ public class SigninAction extends ActionSupport {
 		cookie.setMaxAge(CookieManager.REMEBER_ME_COOKIE_AGE);
 
 		httpServletResponse.addCookie(cookie);
+	}
+
+	public boolean isCaptchaResult() {
+		return captchaResult;
+	}
+
+	public void setCaptchaResult(boolean captchaResult) {
+		this.captchaResult = captchaResult;
 	}
 
 }
