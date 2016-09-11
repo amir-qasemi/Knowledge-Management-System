@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Project</title>
+<link rel="icon" type="image/jpg" href="images/title.jpg">
 
 <!-- CSS includes files -->
 <%@ include file="../includs/templates/css_include_files.jsp"%>
@@ -186,5 +187,11 @@
 	<script
 		src="authentication/signout/ajax/ajax_request_for_sign_out/ajax_sign_out.js"></script>
 
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
 </body>
 </html>

@@ -700,7 +700,7 @@ public class DatabaseBridge {
 
 				user.setPhoneNumber(resultSet.getString(18));
 				if (resultSet.getDate(20) != null) {
-					user.setBirthDate(resultSet.getDate(19).toString());
+					user.setBirthDate(resultSet.getDate(20).toString());
 				}
 			} else {
 				throw new UserNameDoesNotExistsException(userName);

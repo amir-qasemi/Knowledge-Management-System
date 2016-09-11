@@ -49,7 +49,7 @@
 
 		<global-results>
 			<result name="AccessDeniedResult" type="redirectAction">
-				<param name="actionName">AccessDenied.action</param>
+				<param name="actionName">Error500</param>
 				<param name="namespace">/</param>
 			</result>
 		</global-results>

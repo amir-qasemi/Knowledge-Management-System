@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>create new wiki Page</title>
+<link rel="icon" type="image/jpg" href="images/title.jpg">
 
 <!-- include bootstrap file -->
 <%@ include file="../includs/template/css_includs_template.jsp"%>
