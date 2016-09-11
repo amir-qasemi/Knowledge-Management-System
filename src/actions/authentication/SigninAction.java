@@ -48,7 +48,6 @@ public class SigninAction extends ActionSupport {
 	@SuppressWarnings({ "rawtypes", "unchecked", "finally" })
 	public String execute() {
 		String result = ERROR;
-		System.out.println("Sign in action*********************************************");
 		try {
 			Map httpSession = (Map) ActionContext.getContext().get("session");
 			UserManager userManager = UserManager.getUserManager();
@@ -135,7 +134,7 @@ public class SigninAction extends ActionSupport {
 		httpServletResponse.addCookie(cookie);
 	}
 
-	public boolean isCaptchaResult() {
+	public boolean getCaptchaResult() {
 		return captchaResult;
 	}
 

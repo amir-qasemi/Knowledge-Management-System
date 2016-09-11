@@ -7,7 +7,6 @@
 		$("#actionErrorContainer").hide();
 		$("#actionSuccessContainer").hide();
 		$("#login").on("click", function() {
-			console.log("Ligin button Clicked");
 			ajaxlogin().done(function(data) {
 				
 				$("body").append(data);

@@ -16,7 +16,9 @@
 
 <!-- this JSP file content have all of home page includs -->
 <%@ include file="../include/css_home_page_includs.jsp"%>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -102,13 +104,13 @@
 											class="form-control password" id="password" name="password"
 											placeholder="Password">
 									</div>
-									
+
 									<!-- include captcha started-->
 
 									<div class="form-group">
-										
 
-									<%@ include file="../../../authentication/captcha/captcha.jsp"%>
+
+										<%@ include file="../../../authentication/captcha/captcha.jsp"%>
 
 									</div>
 
@@ -120,7 +122,7 @@
 										</label>
 									</div>
 									<span class="pull-right"> <br /> <input type="button"
-										class="btn btn-dark btn-lg" id="login" value="Signin">
+										class="btn btn-dark btn-lg" id="login" value="Signin"  onclick="ValidateForm()">
 										<input type="Reset" class="btn btn-dark btn-lg">
 									</span>
 								</form>
@@ -278,5 +280,73 @@
 		<%@ include
 			file="../../../authentication/request_for_registeration/ajax/ajax_request_for_register/ajax_register.jsp"%>
 	</div>
+
+
+
+	<script type="text/javascript">
+	var image = document.getElementById("CaptchaImage");
+	var num = document.getElementById("numberOfImage");
+	var res = document.getElementById("captchaResult");
+	var code = document.getElementById("CaptchaCode");
+	
+	function ValidateForm() {
+		
+		if(code.value === "625708" && num.value === "1"){
+			res.value = true;
+		}
+		else if(code.value === "538112" && num.value === "2"){
+			res.value = true;
+		}
+		else if(code.value === "571196" && num.value === "3"){
+			res.value = true;
+		}
+		else if(code.value === "071497003" && num.value === "4"){
+			res.value = true;
+		}
+		else if(code.value === "6626512" && num.value === "5"){
+			res.value = true;
+		}
+		else if(code.value === "6360424" && num.value === "6"){
+			res.value = true;
+		}
+		else if((code.value !== "6360424" || code.value !== "6626512" || code.value !== "071497003" || code.value !== "571196" || code.value !== "538112" || code.value !== "625708") && (code.value !== "") ){
+			$("#actionErrorContainer").show();
+			$("#errorMessageDiv").html('Security code is not correct.');
+			res.value = false;
+		}
+	}
+	
+	
+	function ReloadCaptchaImage() {
+		if(num.value === "1"){
+			image.src = "authentication/captchaImages/2.png";
+			num.value = "2";
+		}
+		else if(num.value === "2"){
+			image.src = "authentication/captchaImages/3.png";
+			num.value = "3";
+		}
+		else if(num.value === "3"){
+			image.src = "authentication/captchaImages/4.png";
+			num.value = "4";
+		}
+		else if(num.value === "4"){
+			image.src = "authentication/captchaImages/5.png";
+			num.value = "5";
+		}
+		else if(num.value === "5"){
+			image.src = "authentication/captchaImages/6.png";
+			num.value = "6";
+		}
+		else if(num.value === "6"){
+			image.src = "authentication/captchaImages/1.png";
+			num.value = "1";
+		}
+		return true;
+	}
+</script>
+
+
+
 </body>
 </html>
