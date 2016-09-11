@@ -1,0 +1,22 @@
+.navigationbar {
+	list-style-type: none;
+	margin: 0;
+	margin-left: -20px;
+	padding: 0px;
+	overflow: hidden;
+	background-color: #000;
+	top: 0;
+	width: 100%;
+	position: fixed;
+	border-radius: 0px;
+}
+
+.error-container {
+	margin-top: -121px;
+}
+
+#page-content-wrapper {
+	background-color: white;
+	width: 100%;
+
+}

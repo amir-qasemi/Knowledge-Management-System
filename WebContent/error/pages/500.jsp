@@ -33,11 +33,11 @@
 						<h4 class="smaller">Try one of the following:</h4>
 
 						<ul class="list-unstyled spaced inline bigger-110 margin-15">
-							<li><i class="ace-icon fa fa-hand-o-right blue"></i> Check
+							<li><i class="ace-icon fa fa-hand-o-right blue"></i>Check
 								your sign in</li>
 
 							<li><i class="ace-icon fa fa-hand-o-right blue"></i>You are
-								not signed in our you wont to hack</li>
+								not signed in or you want to hack</li>
 
 							<li><i class="ace-icon fa fa-hand-o-right blue"></i>Then
 								fuck to you</li>

@@ -37,10 +37,10 @@
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
 
-<!-- navigation bar style -->
-<!-- Custom CSS -->
-<link href="wiki/css/side_bar/simple-sidebar.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="dashboard/user/css/sidebar_style/side_bar_style.css" />
 
-<!-- Custom CSS -->
-<link href="wiki/css/side_bar/simple-sidebar-custom.css"
-	rel="stylesheet">
+<link rel="stylesheet" href="dashboard/user/css/page_style/costom.css" />
+
+<link rel="stylesheet"
+	href="dashboard/user/css/navebar_style/navebar_style.css" />

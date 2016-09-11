@@ -1,22 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
 
-<ul class="navbar">
-	<li><button id="menu-toggle"
-			type="button" class="navbar-toggle" data-toggle="collapse"
-			data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
-			<span class="icon-bar"></span> <span class="icon-bar"></span>
-		</button></li>
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
 
-	<li><a class="active" href="">Home <i class="fa fa-home"></i></a></li>
-	<li><a href="">News</a></li>
-	<li><a href="">Contact</a></li>
-	<li><a href="">About</a></li>
-	<li class="pull-right"><button type="button"
-			class="btn btn-outline btn-danger signout" value="SignOut"
-			id="submit">
-			<i class="fa fa-sign-out fa-fw"></i> Signout
-		</button></li>
-</ul>
+		<ul class="nav navbar-nav">
+
+			<li><a class="active" href="">Home <i class="fa fa-home"></i></a></li>
+			<li><a href="">News</a></li>
+			<li><a href="">Contact</a></li>
+			<li><a href="">About</a></li>
+			<li><a id="menu-toggle">Toggle navigation</span>
+			</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="javascript:void(0)" class="dropbtn"
+				onclick="myFunction()">Dropdown</a>
+				<div class="dropdown-content" id="myDropdown">
+					<a href="#">Link 1</a> <a href="#">Link 2</a> <a href="#">Link
+						3</a>
+				</div></li>
+			<li><a class="signout" value="SignOut" id="submit"> <i
+					class="fa fa-sign-out fa-fw"></i> Signout
+			</a></li>
+		</ul>
+	</div>
+</nav>
