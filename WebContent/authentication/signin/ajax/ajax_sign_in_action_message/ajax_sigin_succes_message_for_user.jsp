@@ -5,5 +5,5 @@
 
 <!-- script only result -->
 <script type="text/javascript">
-window.location.href = "UserPage.jsp";
+window.location.href = "userDashboardRedirection";
 </script>

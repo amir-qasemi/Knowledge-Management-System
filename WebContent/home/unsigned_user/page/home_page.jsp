@@ -12,7 +12,7 @@
 <meta name="author" content="AmirH Qasemi">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Knowledge Management System</title>
-
+<link rel="icon" type="image/jpg" href="images/title.jpg">
 
 <!-- this JSP file content have all of home page includs -->
 <%@ include file="../include/css_home_page_includs.jsp"%>

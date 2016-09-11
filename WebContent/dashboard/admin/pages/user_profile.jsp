@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AdminPage</title>
+<link rel="icon" type="image/jpg" href="images/title.jpg">
 
 <%@ include
 	file="../includs/template/new_css_admin_dashboard_include.jsp"%>

@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>wiki</title>
+<link rel="icon" type="image/jpg" href="images/title.jpg">
 
 <!-- include bootstrap file -->
 <%@ include file="../includs/template/css_includs_template.jsp"%>

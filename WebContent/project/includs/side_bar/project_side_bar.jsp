@@ -2,7 +2,7 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
 	<ul class="sidebar-nav">
-		<li class="sidebar-brand"><a href="#"> <strong><s:property
+		<li class="sidebar-brand"><a href="ProfileRedirect"> <strong><s:property
 						value="#session.user.userName" /></strong> <i class="fa fa-user"></i></a></li>
 		<li><a href="projectRedirect"><i
 				class="glyphicon glyphicon-new-window"></i> Project start page </a></li>

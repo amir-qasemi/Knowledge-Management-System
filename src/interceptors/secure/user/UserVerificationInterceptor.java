@@ -23,18 +23,18 @@ public class UserVerificationInterceptor implements Interceptor{
 
 	@Override
 	public String intercept(ActionInvocation actionInvocation) throws Exception {
-		boolean isUserAdmin = false;
+		boolean isUserVerified = false;
 		Map httpSession = (Map) ActionContext.getContext().get("session");
 		User user = (User)httpSession.get("user");
 		
 		if(user != null){
-			if(user.getRole().equals(Role.ADMIN)){
-				isUserAdmin = true;
+			if(user.getRole().equals(Role.ADMIN) || user.getRole().equals(Role.USER) ){
+				isUserVerified = true;
 			}
 		}
 		
 		
-		if(isUserAdmin){
+		if(isUserVerified){
 			return actionInvocation.invoke();
 		} else{
 			return "AccessDeniedResult";
