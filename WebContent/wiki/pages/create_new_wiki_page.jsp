@@ -82,13 +82,14 @@
 
 	</div>
 
+	<!-- ad AJAX for sign out -->
+	<script
+		src="authentication/signout/ajax/ajax_request_for_sign_out/ajax_sign_out.js"></script>
+
 	<!-- page JQuery is in this page -->
 	<%@ include
 		file="../js/create_new_wiki_page/control/create_new_wiki_page_control.jsp"%>
 
-	<!-- ad AJAX for sign out -->
-	<script
-		src="authentication/signout/ajax/ajax_request_for_sign_out/ajax_sign_out.js"></script>
 
 </body>
 </html>

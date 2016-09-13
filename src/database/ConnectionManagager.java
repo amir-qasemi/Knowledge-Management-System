@@ -35,9 +35,12 @@ public class ConnectionManagager {
 
 	private static void configDB() throws FileNotFoundException, IOException, PropertyVetoException {
 		cpds.setDriverClass("com.mysql.jdbc.Driver");
-		cpds.setJdbcUrl("jdbc:mysql://localhost:3306/kms");
+		// cpds.setJdbcUrl("jdbc:mysql://localhost:3306/kms");
+		// cpds.setUser("root");
+		// cpds.setPassword("35462832");
+		cpds.setJdbcUrl("jdbc:mysql://localhost:8080/kms");
 		cpds.setUser("root");
-		cpds.setPassword("35462832");
+		cpds.setPassword("#4271011304@");
 		// cpds.setJdbcUrl("jdbc:mysql://localhost:3306/kms");
 		// cpds.setUser("root");
 		// cpds.setPassword("sanay.rosh");

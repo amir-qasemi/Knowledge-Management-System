@@ -154,7 +154,7 @@
 										</div>
 									</div>
 									<div>
-										<a href="#" class="btn btn-block btn-primary"> <span>Next</span>
+										<a href="defineAccessLevelRedirect" class="btn btn-block btn-primary"> <span>Next</span>
 											<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
 										</a>
 									</div>

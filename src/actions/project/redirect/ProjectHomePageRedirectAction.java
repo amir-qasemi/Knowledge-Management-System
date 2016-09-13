@@ -16,8 +16,6 @@ import database.DatabaseBridge;
 import user.User;
 
 @ResultPath(value = "/")
-@InterceptorRef(value = "admin")
-@ParentPackage(value = "user")
 @Action(value = "projectRedirect", results = {
 		@Result(name = ActionSupport.SUCCESS, location = "project/pages/project_home_page.jsp") })
 

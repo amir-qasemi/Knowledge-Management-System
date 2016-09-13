@@ -104,22 +104,153 @@
 														<div class="widget-main padding-24">
 															<div class="row">
 																<div class="col-sm-6">
+
 																	<div class="row">
 																		<div
 																			class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
 																			<b>Your projects</b>
 																		</div>
 																	</div>
+																	<br />
 
-																	<div>
-																		<ul class="list-unstyled spaced">
-																			<s:iterator status="stat" value="projectNames">
-																				<li><i class="ace-icon fa fa-caret-right blue"></i>
-																					Project id : <s:property value="project_id" />
-																					Project name : <s:property value="project_name" /></li>
-																			</s:iterator>
-																		</ul>
+																	<div class="col col-xs-6">
+
+
+																		<div class="widget-box widget-color-green">
+																			<div class="widget-header widget-header-small">
+																				<h5 class="widget-title smaller">
+																					<i class="fa fa-unlock"></i>&nbsp;Public projects
+																				</h5>
+																			</div>
+																		</div>
+
+
 																	</div>
+
+
+																	<div class="col col-xs-6">
+
+
+																		<div class="widget-box widget-color-red">
+																			<div class="widget-header widget-header-small">
+																				<h5 class="widget-title smaller">
+																					<i class="fa fa-lock"></i>&nbsp;Private projects
+																				</h5>
+																			</div>
+																		</div>
+
+
+																	</div>
+
+																	<div class="col-xs-12">
+																		<div class="timeline-container">
+
+																			<div class="timeline-label">
+																				<span
+																					class="label label-primary arrowed-in-right label-lg">
+																					<b>Projects</b>
+																				</span>
+																			</div>
+
+																			<!-- all of the content write in iterator -->
+
+																			<s:iterator status="stat" value="projectNames">
+																				<form>
+
+																					<div style="visibility: hidden;">
+																						<input type="text"
+																							value='<s:property value="project_id" />'>
+																					</div>
+
+																					<s:if test="%{project_access_level=='public'}">
+																						<div class="timeline-items">
+
+																							<div class="timeline-item clearfix">
+																								<div class="timeline-info">
+																									<i
+																										class="timeline-indicator ace-icon fa fa-unlock btn btn-success no-hover"></i>
+																								</div>
+
+																								<div class="widget-box widget-color-green">
+																									<div class="widget-header widget-header-small">
+																										<h5 class="widget-title smaller">creator
+																											user name here</h5>
+
+																										<span class="widget-toolbar no-border">
+																											<i class="ace-icon fa fa-clock-o bigger-110"></i>
+																											creation date here
+																										</span> <span class="widget-toolbar"> <a
+																											href="#" data-action="collapse"> <i
+																												class="ace-icon fa fa-chevron-up"></i>
+																										</a>
+																										</span>
+																									</div>
+
+																									<div class="widget-body">
+																										<div class="widget-main">
+																											Project id :
+																											<s:property value="project_id" />
+																											<br /> Project name :
+																											<s:property value="project_name" />
+																											<br /> Project description :
+																											<s:property value="project_description" />
+																										</div>
+																										<div class="pull-right">
+																											<button type="submit" class="btn btn-success"><i class="fa fa-unlock"></i>&nbsp;Open</button>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</s:if>
+																					<s:else>
+																						<div class="timeline-items">
+
+																							<div class="timeline-item clearfix">
+																								<div class="timeline-info">
+																									<i
+																										class="timeline-indicator ace-icon fa fa-lock btn btn-danger no-hover"></i>
+																								</div>
+
+																								<div class="widget-box widget-color-red">
+																									<div class="widget-header widget-header-small">
+																										<h5 class="widget-title smaller">creator
+																											user name here</h5>
+
+																										<span class="widget-toolbar no-border">
+																											<i class="ace-icon fa fa-clock-o bigger-110"></i>
+																											creation date here
+																										</span> <span class="widget-toolbar"> <a
+																											href="#" data-action="collapse"> <i
+																												class="ace-icon fa fa-chevron-up"></i>
+																										</a>
+																										</span>
+																									</div>
+
+																									<div class="widget-body">
+																										<div class="widget-main">
+																											Project id :
+																											<s:property value="project_id" />
+																											<br /> Project name :
+																											<s:property value="project_name" />
+																											<br /> Project description :
+																											<s:property value="project_description" />
+																										</div>
+																										<div class="pull-right">
+																											<button type="submit" class="btn btn-danger"><i class="fa fa-unlock"></i>&nbsp;Open</button>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</s:else>
+
+																				</form>
+																				<!-- /.timeline-items -->
+																			</s:iterator>
+																		</div>
+																	</div>
+
 																</div>
 																<!-- /.col -->
 

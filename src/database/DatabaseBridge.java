@@ -2064,7 +2064,7 @@ public class DatabaseBridge {
 	}
 
 	public boolean createProject(String project_description, String project_name, String project_wiki_name,
-			String user_name) throws Throwable {
+			user.User user) throws Throwable {
 		boolean result = false;
 		String wikiPageid = null;
 		String project_id = null;
@@ -2092,7 +2092,7 @@ public class DatabaseBridge {
 			addProjectconnection.commit();
 
 			// this statement provided to create this project WIKI name
-			savePage(project_wiki_name, user_name, "<p> your project wiki here ! edit this .</p>",
+			savePage(project_wiki_name, user.getUserName(), "<p> your project wiki here ! edit this .</p>",
 					content.EditType.CREATE);
 
 			// this statement provided to receive created project id
@@ -2111,6 +2111,9 @@ public class DatabaseBridge {
 			createConnetionBetweenWikiAndProjectStatement.executeUpdate();
 			wikiConnection.commit();
 
+			// add themselve on project
+			addMember(user.getId(), Integer.parseInt(project_id), "Lead");
+
 			result = true;
 
 		} catch (Throwable e) {
@@ -2118,6 +2121,35 @@ public class DatabaseBridge {
 			wikiConnection.rollback();
 			throw e;
 		}
+		return result;
+	}
+
+	public boolean define_project_access_level(String access_level, int project_id) throws Throwable {
+		boolean result = false;
+		// TODO : after end this add select access level on project summary
+
+		// query
+		String query = "UPDATE project SET project_access_level = ? WHERE project_id = ?";
+
+		// statement
+		PreparedStatement statement = null;
+
+		// connection
+		Connection connection = null;
+
+		try {
+			connection = ConnectionManagager.getConnection();
+			connection.setAutoCommit(false);
+			statement = connection.prepareStatement(query);
+			statement.setString(1, access_level);
+			statement.setInt(2, project_id);
+			statement.executeUpdate();
+			connection.commit();
+		} catch (Throwable e) {
+			connection.rollback();
+			throw e;
+		}
+
 		return result;
 	}
 
@@ -2302,15 +2334,19 @@ public class DatabaseBridge {
 	// them
 	public ArrayList<project.ProjectSummary> getProjectsNames(int user_id) throws Throwable {
 		ArrayList<project.ProjectSummary> projects = new ArrayList<>();
+		ArrayList<Integer> ids = new ArrayList<>();
 
 		// query
 		String getProjectidQuery = "SELECT * FROM membership WHERE membership_user_id = ?";
+		String getProjectAccessLevelQuery = "SELECT * FROM project WHERE project_id = ?";
 
 		// statement
 		PreparedStatement getProjectidStatement = null;
+		PreparedStatement getProjectAccessLevelStatement = null;
 
 		// result set
 		ResultSet resultSet = null;
+		ResultSet getProjectAccessLevelSet = null;
 
 		// connection
 		Connection connection;
@@ -2324,10 +2360,32 @@ public class DatabaseBridge {
 			while (resultSet.next()) {
 
 				String project_id = resultSet.getInt("membership_project_id") + "";
+				ids.add(Integer.parseInt(project_id));
 				String project_name = getProjectName(Integer.parseInt(project_id));
-				project.ProjectSummary summary = new ProjectSummary(project_name, project_id);
+				project.ProjectSummary summary = new ProjectSummary(project_name, project_id, "public", "");
 				projects.add(summary);
 
+			}
+
+			String project_access_level = null;
+			String project_description = null;
+			getProjectAccessLevelStatement = connection.prepareStatement(getProjectAccessLevelQuery);
+			int counter = 0;
+			for (Integer id : ids) {
+				getProjectAccessLevelStatement.setInt(1, id);
+				getProjectAccessLevelSet = getProjectAccessLevelStatement.executeQuery();
+				if (getProjectAccessLevelSet.next()) {
+					project_access_level = getProjectAccessLevelSet.getString("project_access_level");
+					project_description = getProjectAccessLevelSet.getString("project_description");
+				}
+				project.ProjectSummary summery = projects.get(counter);
+				summery.setProject_access_level(project_access_level);
+				if (project_description.length() > 100)
+					summery.setProject_description(project_description.substring(0, 80) + " ...");
+				else
+					summery.setProject_description(project_description + " .");
+				projects.equals(summery);
+				counter++;
 			}
 
 		} catch (Throwable e) {
