@@ -90,7 +90,7 @@
 													class="btn btn-block btn-danger fa fa-fa-save">
 											</div>
 
-											<div class="keep">
+											<div class="keep" style="visibility: hidden;">
 												<input type="text" name="fileName" id="uploadFileName">
 											</div>
 

@@ -31,26 +31,86 @@
 				<div class="row">
 					<!-- navigation bar -->
 					<%@ include file="../includs/navebar/user_nave_bar.jsp"%>
-					<div class="error-container">
-						<div class="well">
-							<h1 class="grey lighter smaller">
-								<span class="blue bigger-125"> <i
-									class="ace-icon fa fa-dashboard"></i> welcome
-								</span>
-								<s:property value="#session.user.userName" />
-							</h1>
 
-							<hr>
-							<!-- TODO : start from here -->
+					<!-- heading -->
+					<div class="page-header">
+						<h1>Uploaded files</h1>
+					</div>
+
+
+					<br /> <br />
+
+					<!-- ------------------------ time line -->
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+						<div class="timeline-container">
+
+							<div class="timeline-label">
+								<span class="label label-primary arrowed-in-right label-lg">
+									<b>Uploaded filse</b>
+								</span>
+							</div>
+
+							<s:iterator status="stat" value="files">
+								<form action="downloadFile" method="post">
+
+
+									<div class="timeline-items">
+
+										<div class="timeline-item clearfix">
+											<div class="timeline-info">
+												<i
+													class="timeline-indicator ace-icon fa fa-file-o btn btn-inverse no-hover"></i>
+											</div>
+
+											<div class="widget-box widget-color-dark">
+												<div class="widget-header widget-header-small">
+													<h5 class="widget-title smaller">
+														<s:property value="fileName"></s:property>
+													</h5>
+
+													<span class="widget-toolbar no-border"> <i
+														class="ace-icon fa fa-clock-o bigger-110"></i> <s:property
+															value="date" />
+													</span> <span class="widget-toolbar"> <a href="#"
+														data-action="collapse"> <i
+															class="ace-icon fa fa-chevron-up"></i>
+													</a>
+													</span>
+												</div>
+
+												<div class="widget-body">
+													<div class="widget-main">
+														<p>
+															UserName :
+															<s:property value="userName" />
+															<br /> File heading :
+															<s:property value="heading" />
+														</p>
+														<div class="fileLocationDiv" style="visibility: hidden;">
+															<input class="form-control" type="text"
+																value=<s:property value="fileLocation"/>
+																name="fileLocation">
+														</div>
+
+														<br /> <input type="submit" class="btn btn-inverse"
+															value="Download">
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</form>
+							</s:iterator>
 
 						</div>
 					</div>
+					<!-- ------------------/ end time line -->
 
 					<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 					<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 					<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-					<br /> <br /> <br /> <br /> <br /> <br />
-
 
 
 					<%@ include

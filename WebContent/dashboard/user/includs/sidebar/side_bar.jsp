@@ -2,14 +2,15 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
 	<ul class="sidebar-nav">
-		<li class="sidebar-brand"><a href="ProfileRedirect"> <strong><s:property
-						value="#session.user.userName" /></strong> <i class="fa fa-user"></i></a></li>
-		<li><a href="projectRedirect"><i
-				class="glyphicon glyphicon-new-window"></i> Project start page </a></li>
-
-		<li><a type="submit" href="dashboardRedirect"> <i
+		<br />
+		<br />
+		<br />
+		<li><a type="submit" href="userDashboardRedirection"> <i
 				class="fa fa-tachometer"></i> Dashboard
 		</a> <b class="arrow"></b></li>
+
+		<li><a href="projectRedirect"><i
+				class="glyphicon glyphicon-new-window"></i> Project start page </a></li>
 
 		<li><a type="submit" href="seeMesaages"> <i
 				class="fa fa-envelope-o"></i> Received messages
