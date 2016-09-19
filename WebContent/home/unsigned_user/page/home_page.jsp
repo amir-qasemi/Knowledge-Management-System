@@ -26,6 +26,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body id="index">
@@ -73,12 +74,13 @@
 								<h2>Knowledge Management System</h2>
 							</div>
 							<div class="panel-body ">
-								<button class="btn btn-dark btn-lg" id="signin-button">
-									Signin <i class="fa fa-sign-in fa-3x"> </i>
+								<button class="button" style="vertical-align: middle"
+									id="signin-button">
+									<span>Signin</span>
 								</button>
-								<button class="btn btn-dark btn-lg" id="registration-button">
-									Request Registration <i class="fa fa-user-plus fa-3x"
-										aria-hidden="true"></i>
+								<button class="button" style="vertical-align: middle"
+									id="registration-button">
+									<span>Registration</span>
 								</button>
 							</div>
 						</div>
@@ -122,8 +124,9 @@
 										</label>
 									</div>
 									<span class="pull-right"> <br /> <input type="button"
-										class="btn btn-dark btn-lg" id="login" value="Signin"  onclick="ValidateForm()">
-										<input type="Reset" class="btn btn-dark btn-lg">
+										class="btn btn-dark btn-lg" id="login" value="Signin"
+										onclick="ValidateForm()"> <input type="Reset"
+										class="btn btn-dark btn-lg">
 									</span>
 								</form>
 							</div>
@@ -284,67 +287,58 @@
 
 
 	<script type="text/javascript">
-	var image = document.getElementById("CaptchaImage");
-	var num = document.getElementById("numberOfImage");
-	var res = document.getElementById("captchaResult");
-	var code = document.getElementById("CaptchaCode");
-	
-	function ValidateForm() {
-		
-		if(code.value === "625708" && num.value === "1"){
-			res.value = true;
+		var image = document.getElementById("CaptchaImage");
+		var num = document.getElementById("numberOfImage");
+		var res = document.getElementById("captchaResult");
+		var code = document.getElementById("CaptchaCode");
+
+		function ValidateForm() {
+
+			if (code.value === "625708" && num.value === "1") {
+				res.value = true;
+			} else if (code.value === "538112" && num.value === "2") {
+				res.value = true;
+			} else if (code.value === "571196" && num.value === "3") {
+				res.value = true;
+			} else if (code.value === "071497003" && num.value === "4") {
+				res.value = true;
+			} else if (code.value === "6626512" && num.value === "5") {
+				res.value = true;
+			} else if (code.value === "6360424" && num.value === "6") {
+				res.value = true;
+			} else if ((code.value !== "6360424" || code.value !== "6626512"
+					|| code.value !== "071497003" || code.value !== "571196"
+					|| code.value !== "538112" || code.value !== "625708")
+					&& (code.value !== "")) {
+				$("#actionErrorContainer").show();
+				$("#errorMessageDiv").html('Security code is not correct.');
+				res.value = false;
+			}
 		}
-		else if(code.value === "538112" && num.value === "2"){
-			res.value = true;
+
+		function ReloadCaptchaImage() {
+			if (num.value === "1") {
+				image.src = "authentication/captchaImages/2.png";
+				num.value = "2";
+			} else if (num.value === "2") {
+				image.src = "authentication/captchaImages/3.png";
+				num.value = "3";
+			} else if (num.value === "3") {
+				image.src = "authentication/captchaImages/4.png";
+				num.value = "4";
+			} else if (num.value === "4") {
+				image.src = "authentication/captchaImages/5.png";
+				num.value = "5";
+			} else if (num.value === "5") {
+				image.src = "authentication/captchaImages/6.png";
+				num.value = "6";
+			} else if (num.value === "6") {
+				image.src = "authentication/captchaImages/1.png";
+				num.value = "1";
+			}
+			return true;
 		}
-		else if(code.value === "571196" && num.value === "3"){
-			res.value = true;
-		}
-		else if(code.value === "071497003" && num.value === "4"){
-			res.value = true;
-		}
-		else if(code.value === "6626512" && num.value === "5"){
-			res.value = true;
-		}
-		else if(code.value === "6360424" && num.value === "6"){
-			res.value = true;
-		}
-		else if((code.value !== "6360424" || code.value !== "6626512" || code.value !== "071497003" || code.value !== "571196" || code.value !== "538112" || code.value !== "625708") && (code.value !== "") ){
-			$("#actionErrorContainer").show();
-			$("#errorMessageDiv").html('Security code is not correct.');
-			res.value = false;
-		}
-	}
-	
-	
-	function ReloadCaptchaImage() {
-		if(num.value === "1"){
-			image.src = "authentication/captchaImages/2.png";
-			num.value = "2";
-		}
-		else if(num.value === "2"){
-			image.src = "authentication/captchaImages/3.png";
-			num.value = "3";
-		}
-		else if(num.value === "3"){
-			image.src = "authentication/captchaImages/4.png";
-			num.value = "4";
-		}
-		else if(num.value === "4"){
-			image.src = "authentication/captchaImages/5.png";
-			num.value = "5";
-		}
-		else if(num.value === "5"){
-			image.src = "authentication/captchaImages/6.png";
-			num.value = "6";
-		}
-		else if(num.value === "6"){
-			image.src = "authentication/captchaImages/1.png";
-			num.value = "1";
-		}
-		return true;
-	}
-</script>
+	</script>
 
 
 

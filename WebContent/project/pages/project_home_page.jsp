@@ -1,3 +1,12 @@
+<%@page import="com.opensymphony.xwork2.util.location.Location"%>
+<%@page import="javax.xml.ws.Action"%>
+<%@page import="actions.error.Error500RedirectAction"%>
+<%@page import="java.util.Map"%>
+<%@page import="com.sun.java.swing.plaf.windows.resources.windows"%>
+<%@page import="user.User"%>
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@page import="com.sun.xml.internal.bind.v2.schemagen.xmlschema.Import"%>
+<%@page import="org.apache.struts2.components.Include"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -14,6 +23,19 @@
 
 </head>
 <body class="no-skin">
+
+	<!-- This form eject request if not loged in -->
+	<%
+		Map httpSession = (Map) ActionContext.getContext().get("session");
+		User user = (User) httpSession.get("user");
+		if (user == null) {
+	%>
+	<script>
+		window.location.href = "Error500";
+	</script>
+	<%
+		}
+	%>
 
 	<div id="wrapper">
 		<!-- including navigation bar -->
@@ -196,7 +218,9 @@
 																											<s:property value="project_description" />
 																										</div>
 																										<div class="pull-right">
-																											<button type="submit" class="btn btn-success"><i class="fa fa-unlock"></i>&nbsp;Open</button>
+																											<button type="submit" class="btn btn-success">
+																												<i class="fa fa-unlock"></i>&nbsp;Open
+																											</button>
 																										</div>
 																									</div>
 																								</div>
@@ -237,7 +261,9 @@
 																											<s:property value="project_description" />
 																										</div>
 																										<div class="pull-right">
-																											<button type="submit" class="btn btn-danger"><i class="fa fa-unlock"></i>&nbsp;Open</button>
+																											<button type="submit" class="btn btn-danger">
+																												<i class="fa fa-unlock"></i>&nbsp;Open
+																											</button>
 																										</div>
 																									</div>
 																								</div>
