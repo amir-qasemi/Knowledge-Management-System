@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -290,7 +291,7 @@
 	<%@ include
 		file="../../../authentication/signin/include/js_includes.jsp"%>
 
-	
+
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 		type="text/javascript"></script>
@@ -303,7 +304,7 @@
 		<%@ include
 			file="../../../authentication/request_for_registeration/ajax/ajax_request_for_register/ajax_register.jsp"%>
 	</div>
-	
+
 
 
 </body>

@@ -38,9 +38,6 @@
 
 							<li><i class="ace-icon fa fa-hand-o-right blue"></i>You are
 								not signed in or you want to hack</li>
-
-							<li><i class="ace-icon fa fa-hand-o-right blue"></i>Then
-								fuck to you</li>
 						</ul>
 					</div>
 				</div>

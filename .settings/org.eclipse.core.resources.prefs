@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//WebContent/authentication/captcha/captcha.jsp=UTF-8
+encoding//WebContent/dashboard/user/includs/navebar/user_nave_bar.jsp=UTF-8
+encoding//WebContent/dashboard/user/includs/sidebar/side_bar.jsp=UTF-8
 encoding//WebContent/project/todoList/todo_error_message.jsp=UTF-8

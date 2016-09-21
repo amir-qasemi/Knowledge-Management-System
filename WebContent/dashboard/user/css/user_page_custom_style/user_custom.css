@@ -1,0 +1,11 @@
+body {
+	direction: rtl;
+}
+
+.navbar {
+	left: 16px;
+}
+
+.sidenav {
+	right: 0px;
+}

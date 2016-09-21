@@ -14,8 +14,10 @@ import user.UserManager;
 
 @ResultPath(value = "/")
 @Action(value = "addMessage", results = {
-		@Result(name = ActionSupport.SUCCESS, location = "dashboard/admin/pages/message_page.jsp"),
-		@Result(name = ActionSupport.ERROR, location = "dashboard/admin/pages/message_page.jsp") })
+		@Result(name = "adminSuccess", location = "dashboard/admin/pages/message_page.jsp"),
+		@Result(name = "adminError", location = "dashboard/admin/pages/message_page.jsp"),
+		@Result(name = "userSuccess", location = "dashboard/user/pages/send_public_message.jsp"),
+		@Result(name = "userError", location = "dashboard/user/pages/send_public_message.jsp") })
 public class AddMessageAction extends ActionSupport {
 
 	/**
@@ -30,17 +32,28 @@ public class AddMessageAction extends ActionSupport {
 	public String execute() {
 		String result = null;
 		Map httpSession = (Map) ActionContext.getContext().get("session");
-		User user = (User) httpSession.get("user");
-		userName = user.getUserName();
+		User thisUser = (User) httpSession.get("user");
+		userName = thisUser.getUserName();
 		UserManager management = UserManager.getUserManager();
-		boolean messageResult = management.addMessage(message, userName, heading, user.getId());
-		if (messageResult == false) {
-			addActionError("Error accoure in saving message !");
-			result = ERROR;
-		} else if (messageResult == true) {
-			addActionMessage("Successfuly saved message !");
-			result = SUCCESS;
+		boolean messageResult = management.addMessage(message, userName, heading, thisUser.getId());
+		if (thisUser.getRole() == user.Role.ADMIN) {
+			if (messageResult == false) {
+				addActionError("Error accoure in saving message !");
+				result = "adminError";
+			} else if (messageResult == true) {
+				addActionMessage("Successfuly saved message !");
+				result = "adminSuccess";
+			}
+		} else {
+			if (messageResult == false) {
+				addActionError("Error accoure in saving message !");
+				result = "userError";
+			} else if (messageResult == true) {
+				addActionMessage("Successfuly saved message !");
+				result = "userSuccess";
+			}
 		}
+
 		return result;
 	}
 

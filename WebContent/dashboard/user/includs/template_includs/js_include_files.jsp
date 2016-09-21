@@ -22,3 +22,4 @@
 <script src="templates/assets/js/ace.min.js"></script>
 
 <!-- inline scripts related to this page -->
+<script src="dashboard/user/js/side_bar_control.js"></script>

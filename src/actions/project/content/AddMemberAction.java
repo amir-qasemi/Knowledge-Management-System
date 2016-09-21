@@ -3,8 +3,6 @@ package actions.project.content;
 import java.util.ArrayList;
 
 import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.InterceptorRef;
-import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 
@@ -14,8 +12,6 @@ import content.ProjectController;
 import database.DatabaseBridge;
 
 @ResultPath(value = "/")
-@InterceptorRef(value = "admin")
-@ParentPackage(value = "user")
 @Action(value = "addMember", results = {
 		@Result(name = ActionSupport.SUCCESS, location = "project/pages/define_new_project_add_member_page.jsp") })
 public class AddMemberAction extends ActionSupport {

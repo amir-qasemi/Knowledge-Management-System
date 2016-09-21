@@ -7,7 +7,7 @@
 		<li><a href="projectRedirect"><i
 				class="glyphicon glyphicon-new-window"></i> Project start page </a></li>
 
-		<li><a type="submit" href="dashboardRedirect"> <i
+		<li><a type="submit" href="dashboard"> <i
 				class="fa fa-tachometer"></i> Dashboard
 		</a> <b class="arrow"></b></li>
 

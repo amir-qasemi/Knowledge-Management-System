@@ -7,7 +7,7 @@
 		<li><a href="wikiPage"><i
 				class="glyphicon glyphicon-new-window"></i> wiki start pahge </a></li>
 
-		<li><a type="submit" href="dashboardRedirect"> <i
+		<li><a type="submit" href="dashboard"> <i
 				class="fa fa-tachometer"></i> Dashboard
 		</a> <b class="arrow"></b></li>
 
