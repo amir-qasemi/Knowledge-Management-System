@@ -1,8 +1,4 @@
 
-<meta name="description" content="" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
 <!-- bootstrap & fontawesome -->
 <link rel="stylesheet" href="templates/assets/css/bootstrap.min.css" />
 <link rel="stylesheet"
@@ -83,3 +79,8 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+
+<link rel="stylesheet"
+	href="dashboard/user/css/sidebar_style/my_side_bar.css" />
+	
+<link rel="stylesheet" href="dashboard/user/css/navebar_style/navebar_style.css">

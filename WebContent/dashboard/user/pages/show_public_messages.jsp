@@ -29,7 +29,7 @@
 </head>
 <body class="no-skin">
 
-<!-- This form eject request if not loged in -->
+	<!-- This form eject request if not loged in -->
 	<%
 		Map httpSession = (Map) ActionContext.getContext().get("session");
 		User user = (User) httpSession.get("user");
@@ -158,7 +158,8 @@
 						<div class="timeline-container">
 
 							<div class="timeline-label">
-								<span class="label label-primary arrowed-in-right label-lg">
+								<span
+									style="background-color: #6FB3E0 !important; border-color: #6FB3E0;">
 									<b>Messages</b>
 								</span>
 							</div>
@@ -325,11 +326,12 @@
 
 						<br /> <br /> <br />
 
-						<%@ include
-							file="../../../dashboard/admin/includs/new_footer/new_footer.jsp"%>
-
 					</div>
 					<!-- end time line -->
+
+					<%@ include
+						file="../../../dashboard/admin/includs/new_footer/new_footer.jsp"%>
+
 
 					<!-- ----------/ time line -------------------------- -->
 

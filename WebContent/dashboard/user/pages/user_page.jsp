@@ -11,21 +11,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
-<html>
+<html lang="fa">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="fa" />
+<title>کاربر</title>
 <link rel="icon" type="image/jpg" href="images/title.jpg">
 
 <!-- CSS includes -->
 <%@ include file="../includs/template_includs/css_include_files.jsp"%>
 
-<style type="text/css">
-#menu-toggle {
-	position: absolute;
-}
-</style>
-
+<link rel="stylesheet" href="dashboard/user/css/user_page_custom_style/user_custom.css">
 </head>
 <body class="no-skin">
 
@@ -44,20 +40,68 @@
 
 	<div id="wrapper">
 
-		<!-- include side bar -->
-		<%@ include file="../includs/sidebar/side_bar.jsp"%>
+		<!-- user side bar -->
+
+		<!-- Sidebar -->
+
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a type="submit" href="userDashboardRedirection"> <i
+				class="fa fa-tachometer"></i> داشبورد
+			</a> <a href="projectRedirect"><i
+				class="glyphicon glyphicon-new-window"></i> صفحه استارت پروژه </a> <a
+				type="submit" href="seeMesaages"> <i class="fa fa-envelope-o"></i>
+				پیام های عمومی رسیده
+			</a> <a type="submit" href="seeUploadedFiles"> <i
+				class="menu-icon fa fa-files-o"></i> فایل های عمومی رسیده
+			</a> <a type="submit" href="sendMessageRedirect"> <i
+				class="menu-icon fa fa-bullhorn"></i> فرستادنه پیام عمومی
+			</a> <a type="submit" href="sendFileRedirect"> <i
+				class="menu-icon fa fa-upload"></i> فرستادنه فایله عمومی
+			</a> <a type="submit" href="wikiPage"> <i
+				class="menu-icon fa fa-stack-overflow"></i> ویکی
+			</a>
+		</div>
+		<!-- /user side bar -->
 
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
 				<div class="row">
 					<!-- navigation bar -->
-					<%@ include file="../includs/navebar/user_nave_bar.jsp"%>
+
+
+					<nav class="navbar navbar-inverse">
+						<div class="container-fluid">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="">اخبار</a></li>
+								<li><a href="">ارتباط با ما</a></li>
+								<li><a href="">درباره ما</a></li>
+								<li><a class="active" href=""><i class="fa fa-home"></i>خانه</a></li>
+								<li><a style="font-size: 30px; cursor: pointer"
+									onclick="openNav()">&#9776;</a></li>
+							</ul>
+							<ul class="nav navbar-nav">
+								<li><a class="signout" value="SignOut" id="submit"> <i
+										class="fa fa-sign-out fa-fw"></i> خروج
+								</a></li>
+								<li><a href="userProfileRedirect"><i
+										class="ace-icon fa fa-user"></i> پروفایل </a></li>
+								<li><a href="javascript:void(0)" class="dropbtn"
+									onclick="myFunction()">زبانه شما</a>
+									<div class="dropdown-content" id="myDropdown">
+										<a href="#">فارسی</a> <a href="#">English</a>
+									</div></li>
+							</ul>
+						</div>
+					</nav>
+
+					<!-- /navigation bar -->
 					<div class="error-container">
 						<div class="well">
 							<h1 class="grey lighter smaller">
 								<span class="blue bigger-125"> <i
-									class="ace-icon fa fa-dashboard"></i> welcome
+									class="ace-icon fa fa-dashboard"></i> خوش آمدین
 								</span>
 								<s:property value="#session.user.userName" />
 							</h1>

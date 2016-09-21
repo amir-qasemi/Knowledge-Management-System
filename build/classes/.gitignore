@@ -1,3 +1,4 @@
+/.gitignore
 /actions/
 /content/
 /cookie/
@@ -8,5 +9,6 @@
 /message/
 /project/
 /request/
+/struts.xml
 /user/
 /util/

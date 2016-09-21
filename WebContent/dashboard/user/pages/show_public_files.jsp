@@ -67,7 +67,8 @@
 						<div class="timeline-container">
 
 							<div class="timeline-label">
-								<span class="label label-primary arrowed-in-right label-lg">
+								<span
+									style="background-color: #6FB3E0 !important; border-color: #6FB3E0;">
 									<b>Uploaded filse</b>
 								</span>
 							</div>
