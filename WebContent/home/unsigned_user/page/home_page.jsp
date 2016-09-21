@@ -16,6 +16,7 @@
 
 <!-- this JSP file content have all of home page includs -->
 <%@ include file="../include/css_home_page_includs.jsp"%>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
@@ -26,6 +27,16 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
+<link rel="stylesheet" href="mcaptcha/css/jquery.motionCaptcha.0.2.css" />
+
+<link rel="stylesheet"
+	href="authentication/captcha/captcha_css/captcha_css.css" />
+
+
+
+
 </head>
 
 <body id="index">
@@ -86,14 +97,14 @@
 
 					<!-- Panels -->
 					<div
-						class="col col-lg-offset-1 col-lg-4  col-md-offset-1 col-md-4 col-sm-12 col-xs-12"
+						class="col col-lg-offset-1 col-lg-5  col-md-offset-1 col-md-4 col-sm-12 col-xs-12"
 						id="form-panel">
 
 						<!-- Signin Panel-->
-						<div id="signin-panel" class="panel login-panel hidden-panel">
-							<div class="panel-heading my-heading">Signin:</div>
-							<div class="panel-body">
-								<form action="signin" method="post">
+						<div id="mc-form">
+							<div id="signin-panel" class="panel login-panel hidden-panel">
+								<div class="panel-heading my-heading">Signin:</div>
+								<div class="panel-body">
 									<div class="form-group">
 										<label for="userName">Username:</label> <input type="text"
 											class="form-control" id="userName" name="userName"
@@ -104,7 +115,7 @@
 											class="form-control password" id="password" name="password"
 											placeholder="Password">
 									</div>
-
+									<br>
 									<!-- include captcha started-->
 
 									<div class="form-group">
@@ -114,25 +125,29 @@
 
 									</div>
 
+
+
 									<!-- include captcha finished-->
 
-									<div class="checkbox">
+									<div class="checkbox col col-xs-12">
 										<label> <input type="checkbox" id="rememberMe"
 											name="rememberMe"> Remember me
 										</label>
 									</div>
-									<span class="pull-right"> <br /> <input type="button"
-										class="btn btn-dark btn-lg" id="login" value="Signin"  onclick="ValidateForm()">
-										<input type="Reset" class="btn btn-dark btn-lg">
+									<span class="pull-right"> <br /> <input
+										disabled="disabled" autocomplete="false" type="submit"
+										class="btn btn-dark btn-lg" id="login" value="Signin"
+										onclick="ValidateForm()"> <input type="Reset"
+										class="btn btn-dark btn-lg">
 									</span>
-								</form>
-							</div>
-							<div class="panel-footer my-footer">
-								<!-- this area for show error message -->
-								<%@ include
-									file="../../../authentication/action/action_message/action_message.jsp"%>
-								<%@ include
-									file="../../../authentication/signin/ajax/ajax_sign_in_action_message/ajax_sig_in_error_message.jsp"%>
+								</div>
+								<div class="panel-footer my-footer">
+									<!-- this area for show error message -->
+									<%@ include
+										file="../../../authentication/action/action_message/action_message.jsp"%>
+									<%@ include
+										file="../../../authentication/signin/ajax/ajax_sign_in_action_message/ajax_sig_in_error_message.jsp"%>
+								</div>
 							</div>
 						</div>
 						<!-- / Signin Panel-->
@@ -264,6 +279,8 @@
 		<p>Copyright &copy; summer 2016 - 2017</p>
 	</footer>
 
+
+
 	<!-- content -->
 	<!-- including java script file -->
 	<%@ include file="../include/js_home_page_includs.jsp"%>
@@ -273,6 +290,12 @@
 	<%@ include
 		file="../../../authentication/signin/include/js_includes.jsp"%>
 
+	
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="mcaptcha/js/jquery.motionCaptcha.0.2.js"></script>
+
 	<!-- after adding error page on this pages we must add the AJAX controller for action in this section-->
 	<div style="visibility: hidden;">
 		<%@ include
@@ -280,72 +303,7 @@
 		<%@ include
 			file="../../../authentication/request_for_registeration/ajax/ajax_request_for_register/ajax_register.jsp"%>
 	</div>
-
-
-
-	<script type="text/javascript">
-	var image = document.getElementById("CaptchaImage");
-	var num = document.getElementById("numberOfImage");
-	var res = document.getElementById("captchaResult");
-	var code = document.getElementById("CaptchaCode");
 	
-	function ValidateForm() {
-		
-		if(code.value === "625708" && num.value === "1"){
-			res.value = true;
-		}
-		else if(code.value === "538112" && num.value === "2"){
-			res.value = true;
-		}
-		else if(code.value === "571196" && num.value === "3"){
-			res.value = true;
-		}
-		else if(code.value === "071497003" && num.value === "4"){
-			res.value = true;
-		}
-		else if(code.value === "6626512" && num.value === "5"){
-			res.value = true;
-		}
-		else if(code.value === "6360424" && num.value === "6"){
-			res.value = true;
-		}
-		else if((code.value !== "6360424" || code.value !== "6626512" || code.value !== "071497003" || code.value !== "571196" || code.value !== "538112" || code.value !== "625708") && (code.value !== "") ){
-			$("#actionErrorContainer").show();
-			$("#errorMessageDiv").html('Security code is not correct.');
-			res.value = false;
-		}
-	}
-	
-	
-	function ReloadCaptchaImage() {
-		if(num.value === "1"){
-			image.src = "authentication/captchaImages/2.png";
-			num.value = "2";
-		}
-		else if(num.value === "2"){
-			image.src = "authentication/captchaImages/3.png";
-			num.value = "3";
-		}
-		else if(num.value === "3"){
-			image.src = "authentication/captchaImages/4.png";
-			num.value = "4";
-		}
-		else if(num.value === "4"){
-			image.src = "authentication/captchaImages/5.png";
-			num.value = "5";
-		}
-		else if(num.value === "5"){
-			image.src = "authentication/captchaImages/6.png";
-			num.value = "6";
-		}
-		else if(num.value === "6"){
-			image.src = "authentication/captchaImages/1.png";
-			num.value = "1";
-		}
-		return true;
-	}
-</script>
-
 
 
 </body>

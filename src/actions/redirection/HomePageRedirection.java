@@ -1,5 +1,7 @@
 package actions.redirection;
 
+import java.io.File;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -26,5 +28,9 @@ public class HomePageRedirection extends ActionSupport {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public File getCaptchaImage(){
+		
+		return null;
 	}
 }

@@ -1,7 +1,9 @@
 package database;
 
+import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +12,11 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.imageio.ImageIO;
+
+import com.mysql.jdbc.Blob;
 import com.mysql.jdbc.Statement;
+
 
 import content.Comment;
 import content.EditType;
@@ -2442,4 +2448,5 @@ public class DatabaseBridge {
 
 		return requests;
 	}
+
 }

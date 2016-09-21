@@ -57,6 +57,7 @@
 
 
 	<package name="unsigned_users" namespace="/" extends="struts-default">
+
 		<interceptors>
 			<interceptor name="rememberUser"
 				class="interceptors.unsecure.RemeberUserInterceptor" />
@@ -75,11 +76,13 @@
 		<global-results>
 			<result name="admin_home_page" type="redirectAction">
 				<param name="actionName">dashboardRedirect.action</param>
-				<param name="namespace">/</param> 
+				<param name="namespace">/</param>
 			</result>
-			
+
 			<result></result>
 		</global-results>
 	</package>
+
+
 
 </struts>

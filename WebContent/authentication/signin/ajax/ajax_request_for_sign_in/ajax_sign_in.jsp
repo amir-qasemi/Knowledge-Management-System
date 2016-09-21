@@ -22,7 +22,6 @@
 		var dynamicdata = {};
 		dynamicdata["userName"] = $("#userName").val();
 		dynamicdata["password"] = $("#password").val();
-		dynamicdata["captchaResult"] = $("#captchaResult").val();
 		dynamicdata["rememberMe"] = $("#rememberMe").is(":checked");
 		return $.ajax({
 			url : "signin",

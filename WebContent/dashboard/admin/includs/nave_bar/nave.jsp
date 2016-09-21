@@ -12,7 +12,7 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="#">AdminDashbord</a>
+		<a class="navbar-brand" href="#">AdminDashboard</a>
 	</div>
 	<!-- /.navbar-header -->
 
@@ -33,7 +33,7 @@
 				<li class="divider"></li>
 				<li><button type="button" class="btn btn-danger signout"
 						value="SignOut" id="submit">
-						<i class="fa fa-sign-out fa-fw"></i> Signout
+						<i class="fa fa-sign-out fa-fw"></i> Sign out
 					</button></li>
 			</ul> <!-- /.dropdown-user --></li>
 		<!-- /.dropdown -->

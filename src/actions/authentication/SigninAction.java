@@ -42,7 +42,7 @@ public class SigninAction extends ActionSupport {
 	private String userName;
 	private String password;
 	private boolean rememberMe;
-	private boolean captchaResult;
+
 
 	// methods
 	@SuppressWarnings({ "rawtypes", "unchecked", "finally" })
@@ -52,7 +52,7 @@ public class SigninAction extends ActionSupport {
 			Map httpSession = (Map) ActionContext.getContext().get("session");
 			UserManager userManager = UserManager.getUserManager();
 			User user;
-			user = userManager.signinUser(userName, password);
+		 	user = userManager.signinUser(userName, password);
 			Role roll = user.getRole();
 			httpSession.put("user", user);
 			httpSession.put("isSignedin", true);
@@ -60,9 +60,9 @@ public class SigninAction extends ActionSupport {
 			if (user.isBanned() == true) {
 				result = ERROR;
 				throw new Exception("you are banned !");
-			} else if (roll == Role.ADMIN && captchaResult == true) {
+			} else if (roll == Role.ADMIN) {
 				result = "Admin";
-			} else if (roll == Role.USER  && captchaResult == true) {
+			} else if (roll == Role.USER) {
 				result = "User";
 			}
 			if (rememberMe) {
@@ -132,14 +132,6 @@ public class SigninAction extends ActionSupport {
 		cookie.setMaxAge(CookieManager.REMEBER_ME_COOKIE_AGE);
 
 		httpServletResponse.addCookie(cookie);
-	}
-
-	public boolean getCaptchaResult() {
-		return captchaResult;
-	}
-
-	public void setCaptchaResult(boolean captchaResult) {
-		this.captchaResult = captchaResult;
 	}
 
 }
